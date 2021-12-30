@@ -1,15 +1,11 @@
 import './App.css';
+import Main from "./main";
 
 function App() {
   return (
     <>
       <div className="App">
-        <div>
-          test
-        </div>
-        <div>
-          test 2
-        </div>
+        <Main />
       </div>
     </>
   );
