@@ -1,123 +1,101 @@
-import React, { Component } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Draggable from "react-draggable";
 // import "./styles.css";
 import assets from "../assets/assets";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, storageKey, Text } from "@chakra-ui/react";
 
-class DraggableComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeDrags: 0,
-      deltaPosition: {
-        x: 0,
-        y: 0,
-      },
-      controlledPosition: {
-        x: -400,
-        y: 200,
-      },
-    };
-    this.handleDrag = this.handleDrag.bind(this);
-    this.onStart = this.onStart.bind(this);
-    this.onStop = this.onStop.bind(this);
-    this.adjustXPos = this.adjustXPos.bind(this);
-    this.adjustYPos = this.adjustYPos.bind(this);
-    this.onControlledDrag = this.onControlledDrag.bind(this);
-    this.onControlledDragStop = this.onControlledDragStop.bind(this);
-  }
+function useDragging() {
+  const [isDragging, setIsDragging] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const ref = useRef(null);
 
-  handleDrag(e, ui) {
-    const { x, y } = this.state.deltaPosition;
-    this.setState({
-      deltaPosition: {
-        x: x + ui.deltaX,
-        y: y + ui.deltaY,
-      },
+  function onMouseMove(e) {
+    if (!isDragging) return;
+    setPos({
+      x: e.x - ref.current.offsetWidth / 2,
+      y: e.y - ref.current.offsetHeight / 2,
     });
-  }
-
-  onStart() {
-    this.setState({ activeDrags: ++this.state.activeDrags });
-  }
-
-  onStop() {
-    this.setState({ activeDrags: --this.state.activeDrags });
-  }
-  // For controlled component
-  adjustXPos(e) {
-    e.preventDefault();
     e.stopPropagation();
-    const { x, y } = this.state.controlledPosition;
-    this.setState({ controlledPosition: { x: x - 10, y } });
-  }
-
-  adjustYPos(e) {
     e.preventDefault();
+  }
+
+  function onMouseUp(e) {
+    setIsDragging(false);
     e.stopPropagation();
-    const { controlledPosition } = this.state;
-    const { x, y } = controlledPosition;
-    this.setState({ controlledPosition: { x, y: y - 10 } });
+    e.preventDefault();
   }
 
-  onControlledDrag(e, position) {
-    const { x, y } = position;
-    this.setState({ controlledPosition: { x, y } });
+  function onMouseDown(e) {
+    if (e.button !== 0) return;
+    setIsDragging(true);
+
+    setPos({
+      x: e.x - ref.current.offsetWidth / 2,
+      y: e.y - ref.current.offsetHeight / 2,
+    });
+
+    e.stopPropagation();
+    e.preventDefault();
   }
 
-  onControlledDragStop(e, position) {
-    this.onControlledDrag(e, position);
-    this.onStop();
-  }
-  render() {
-    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
-    const { deltaPosition, controlledPosition } = this.state;
-    return (
-      <>
-        <div>
-          <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-            <Box
-              className="box"
-              style={{
-                background: `url(${assets[1].link})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <Box w="150px">
-                <Text>
-                  x: {deltaPosition.x.toFixed(0)} y:{" "}
-                  {deltaPosition.y.toFixed(0)}
-                </Text>
-                <Text>{assets[1].alt}</Text>
-              </Box>
-            </Box>
-          </Draggable>
-        </div>
+  // When the element mounts, attach an mousedown listener
+  useEffect(() => {
+    ref.current.addEventListener("mousedown", onMouseDown);
 
-        <div>
-          <Draggable onDrag={this.handleDrag} {...dragHandlers}>
-            <Box
-              className="box"
-              style={{
-                background: `url(${assets[2].link})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <Box w="150px">
-                <Text>
-                  x: {deltaPosition.x.toFixed(0)} y:{" "}
-                  {deltaPosition.y.toFixed(0)}
-                </Text>
-                <Text>{assets[2].alt}</Text>
-              </Box>
-            </Box>
-          </Draggable>
-        </div>
-      </>
-    );
-  }
+    return () => {
+      ref.current.removeEventListener("mousedown", onMouseDown);
+    };
+  }, [ref.current]);
+
+  // Everytime the isDragging state changes, assign or remove
+  // the corresponding mousemove and mouseup handlers
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener("mouseup", onMouseUp);
+      document.addEventListener("mousemove", onMouseMove);
+    } else {
+      document.removeEventListener("mouseup", onMouseUp);
+      document.removeEventListener("mousemove", onMouseMove);
+    }
+    return () => {
+      document.removeEventListener("mouseup", onMouseUp);
+      document.removeEventListener("mousemove", onMouseMove);
+    };
+  }, [isDragging]);
+
+  return [ref, pos.x, pos.y, isDragging];
+}
+
+function DraggableComponent() {
+  const [ref, x, y, isDragging] = useDragging();
+
+  useEffect(() => {
+    localStorage.setItem("x1", x);
+    localStorage.setItem("y1", y);
+  }, [x, y]);
+
+  return (
+    <Box
+      border="1px"
+      borderColor="gray.200"
+      ref={ref}
+      sx={{
+        position: "absolute",
+        background: `url(${assets[1].link})`,
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        width: 75,
+        height: 400,
+        left: x,
+        top: y,
+      }}
+    >
+      {assets[1].alt}
+      {x} {y}
+    </Box>
+  );
 }
 
 export default DraggableComponent;
+
+// `url(${assets[2].link})`,
