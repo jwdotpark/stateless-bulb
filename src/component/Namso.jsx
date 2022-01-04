@@ -40,7 +40,7 @@ function Namso() {
   }, [namso]);
 
   return (
-    <Box border="1px" borderColor="red" m="3rem" w="90%" h="350px">
+    <Box border="1px" borderColor="red" m="3rem" w="90%" h="350px" zIndex={3}>
       <Flex direction="row" wrap="wrap">
         {namso_link.map((link, index) => {
           return (
