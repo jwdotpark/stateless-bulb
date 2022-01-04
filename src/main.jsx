@@ -1,9 +1,9 @@
-import GroupA from "./component/GroupA";
+import Base from "./component/Base";
 
 function Main() {
   return (
     <div>
-      <GroupA />
+      <Base />
     </div>
   );
 }
