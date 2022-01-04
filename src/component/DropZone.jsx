@@ -1,8 +1,8 @@
-import { Box, Image, Flex } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 function DropZone() {
   return (
-    <Box border="1px" borderColor="red" m="7.5rem" w="80%" h="500px">
+    <Box border="1px" borderColor="red" m="3rem" w="90%" h="500px">
       dropzone
     </Box>
   );

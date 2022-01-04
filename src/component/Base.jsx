@@ -31,11 +31,11 @@ function Base() {
   }
 
   return (
-    <Box border="1px" borderColor="red" m="7.5rem" w="80%">
+    <Box border="1px" borderColor="red" m="3rem" w="90%">
       <Flex direction="row" wrap="wrap">
         {base_link.map((link, index) => {
           return (
-            <Box key={index} w="225px" h="150px" mx="-1.5rem">
+            <Box key={index} w="225px" h="150px" mx="-1rem">
               <Rnd
                 onDragStop={(e, d) => {
                   // set the new position of each base in initialState
@@ -47,12 +47,12 @@ function Base() {
                     },
                   });
                 }}
-                enableResizing={false}
+                enableResizing={true}
                 default={{
                   x: 0,
                   y: 0,
-                  width: 200,
-                  height: 125,
+                  width: 225,
+                  height: 150,
                 }}
               >
                 <Box border="1px" borderStyle="dotted" borderColor="#000">
