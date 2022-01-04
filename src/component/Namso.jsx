@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Image, Flex, Text } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
 import assets from "../assets/assets";
-import { useEffect } from "react/cjs/react.development";
 
 function Namso() {
   const initialState = {
@@ -39,16 +38,6 @@ function Namso() {
     }
     setMessage(message);
   }, [namso]);
-
-  // useEffect(() => {
-  //   for (let i in namso) {
-  //     if (namso[i].alt) {
-  //       setMessage(namso[i].alt);
-  //     } else if (namso[i].alt === "") {
-  //       setMessage("");
-  //     }
-  //   }
-  // }, [namso]);
 
   return (
     <Box border="1px" borderColor="red" m="3rem" w="90%" h="350px">
