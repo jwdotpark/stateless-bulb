@@ -40,7 +40,7 @@ function Namso() {
   }, [namso]);
 
   return (
-    <Box border="1px" borderColor="red" m="3rem" w="90%" h="350px" zIndex={3}>
+    <Box m="3rem" w="90%" h="350px" zIndex={3}>
       <Flex direction="row" wrap="wrap">
         {namso_link.map((link, index) => {
           return (
@@ -75,7 +75,7 @@ function Namso() {
                   height: 225,
                 }}
               >
-                <Box border="1px" borderStyle="dotted" borderColor="#000">
+                <Box>
                   <Image src={`${link}`} draggable="false" />
                 </Box>
               </Rnd>
@@ -87,12 +87,14 @@ function Namso() {
       <br />
       <br />
       <br />
-      {JSON.stringify(namso)}
+      {/* {JSON.stringify(namso)} */}
       <br />
       <br />
       <br />
       <br />
-      <Text>{message}</Text>
+      <Box position="absolute" m="4rem" sx={{ top: "50vh", left: 0 }}>
+        <Text fontSize="xl">{message}</Text>
+      </Box>
     </Box>
   );
 }

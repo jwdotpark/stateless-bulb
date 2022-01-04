@@ -31,7 +31,7 @@ function Base() {
   }
 
   return (
-    <Box border="1px" borderColor="red" m="3rem" w="90%">
+    <Box m="3rem" w="90%">
       <Flex direction="row" wrap="wrap">
         {base_link.map((link, index) => {
           return (
@@ -55,7 +55,7 @@ function Base() {
                   height: 150,
                 }}
               >
-                <Box border="1px" borderStyle="dotted" borderColor="#000">
+                <Box>
                   <Image src={`${link}`} draggable="false" />
                 </Box>
               </Rnd>
@@ -63,7 +63,7 @@ function Base() {
           );
         })}
       </Flex>
-      {JSON.stringify(base)}
+      {/* {JSON.stringify(base)} */}
     </Box>
   );
 }
