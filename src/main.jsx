@@ -1,5 +1,11 @@
+import GroupA from "./component/GroupA";
+
 function Main() {
-  return <div>main</div>;
+  return (
+    <div>
+      <GroupA />
+    </div>
+  );
 }
 
 export default Main;
