@@ -92,7 +92,7 @@ function Namso() {
       <br />
       <br />
       <br />
-      <Box position="absolute" m="4rem" sx={{ top: "50vh", left: 0 }}>
+      <Box position="absolute" m="4rem" sx={{ top: "500px", left: 0 }}>
         <Text fontSize="xl">{message}</Text>
       </Box>
     </Box>
