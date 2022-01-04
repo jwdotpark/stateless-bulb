@@ -4,20 +4,27 @@ import { Rnd } from "react-rnd";
 import assets from "../assets/assets";
 
 function Base() {
-  const style = {
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // border: "solid 1px #000",
-  };
-
   const initialState = {
-    x: 0,
-    y: 0,
+    1: { x: 0, y: 0 },
+    2: { x: 0, y: 0 },
+    3: { x: 0, y: 0 },
+    4: { x: 0, y: 0 },
+    5: { x: 0, y: 0 },
+    6: { x: 0, y: 0 },
+    7: { x: 0, y: 0 },
+    8: { x: 0, y: 0 },
+    9: { x: 0, y: 0 },
+    10: { x: 0, y: 0 },
+    11: { x: 0, y: 0 },
+    12: { x: 0, y: 0 },
+    13: { x: 0, y: 0 },
+    14: { x: 0, y: 0 },
+    15: { x: 0, y: 0 },
   };
 
-  const [p1, setP1] = useState(initialState);
+  const [base, setBase] = useState(initialState);
 
+  // Creating a list of links to the base assets
   const base_link = [];
   for (let i in assets.base) {
     base_link.push(assets.base[i].link);
@@ -31,9 +38,15 @@ function Base() {
             <Box key={index} w="225px" h="150px" mx="-1.5rem">
               <Rnd
                 onDragStop={(e, d) => {
-                  setP1({ x: d.lastX, y: d.lastY });
+                  // set the new position of each base in initialState
+                  setBase({
+                    ...base,
+                    [index + 1]: {
+                      x: d.x,
+                      y: d.y,
+                    },
+                  });
                 }}
-                style={style}
                 enableResizing={false}
                 default={{
                   x: 0,
@@ -42,7 +55,7 @@ function Base() {
                   height: 125,
                 }}
               >
-                <Box>
+                <Box border="1px" borderStyle="dotted" borderColor="#000">
                   <Image src={`${link}`} draggable="false" />
                 </Box>
               </Rnd>
@@ -50,25 +63,7 @@ function Base() {
           );
         })}
       </Flex>
-
-      {/* <Rnd
-        onDragStop={(e, d) => {
-          setP1({ x: d.lastX, y: d.lastY });
-        }}
-        style={style}
-        enableResizing={false}
-        default={{
-          x: 0,
-          y: 0,
-          width: 225,
-          height: 150,
-        }}
-      >
-        <Box border="1px" borderColor="black">
-          <Image src={`${assets.base[1].link}`} draggable="false" />
-        </Box>
-      </Rnd> */}
-      {JSON.stringify(p1)}
+      {JSON.stringify(base)}
     </Box>
   );
 }

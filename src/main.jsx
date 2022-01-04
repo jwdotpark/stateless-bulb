@@ -5,7 +5,7 @@ import DropZone from "./component/DropZone";
 
 function Main() {
   return (
-    <Box bg="#b59c80" border="1px" borderColor="red" w="100%" h="100%">
+    <Box bg="#b59c80" border="1px" borderColor="red" w="100%" h="500vh">
       <Base />
       <DropZone />
     </Box>
