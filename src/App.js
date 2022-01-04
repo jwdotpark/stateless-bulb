@@ -1,4 +1,3 @@
-import { Center } from "@chakra-ui/react";
 import "./App.css";
 import Main from "./main";
 

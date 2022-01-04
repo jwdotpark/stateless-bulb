@@ -1,4 +1,4 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 // import assets from "./assets/assets";
 import Base from "./component/Base";
 import DropZone from "./component/DropZone";
