@@ -1,10 +1,14 @@
+import { Box } from "@chakra-ui/react";
+import assets from "./assets/assets";
 import Base from "./component/Base";
+import DropZone from "./component/DropZone";
 
 function Main() {
   return (
-    <div>
+    <Box bg="#b59c80" border="1px" borderColor="red" w="100%" h="100%">
       <Base />
-    </div>
+      <DropZone />
+    </Box>
   );
 }
 
