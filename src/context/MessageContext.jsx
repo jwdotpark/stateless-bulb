@@ -4,18 +4,19 @@ const MessageContext = createContext([]);
 
 // create a message context that accumulates the input
 const MessageProvider = ({ children }) => {
-  const [globalMessage, setGlobalMessage] = useState("");
-
-  const addMessage = (message) => {
-    setGlobalMessage([...globalMessage, message]);
-  };
+  const [namsoMessage, setNamsoMessage] = useState("");
+  const [eunMessage, setEunMessage] = useState("");
+  const [hyunMessage, setHyunMessage] = useState("");
 
   return (
     <MessageContext.Provider
       value={{
-        globalMessage,
-        setGlobalMessage,
-        addMessage,
+        namsoMessage,
+        setNamsoMessage,
+        eunMessage,
+        setEunMessage,
+        hyunMessage,
+        setHyunMessage,
       }}
     >
       {children}

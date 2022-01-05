@@ -3,14 +3,16 @@ import { MessageContext } from "../context/MessageContext";
 import { Box, Center, Text } from "@chakra-ui/react";
 
 function DropZone() {
-  const { globalMessage } = useContext(MessageContext);
+  const { namsoMessage, eunMessage, hyunMessage } = useContext(MessageContext);
 
   return (
     <>
       <Center>
-        <Box width="80%" align="center">
+        <Box width="1100px" align="center">
           <Text color="#fff" fontSize="6xl" align="justify">
-            {globalMessage}
+            {namsoMessage}
+            {eunMessage}
+            {hyunMessage}
           </Text>
         </Box>
       </Center>

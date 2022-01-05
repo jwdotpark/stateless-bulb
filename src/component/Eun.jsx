@@ -28,11 +28,10 @@ function Eun() {
     20: { x: 0, y: 0 },
   };
 
-  const { globalMessage, setGlobalMessage, addMessage } =
-    useContext(MessageContext);
+  const { setEunMessage } = useContext(MessageContext);
 
   const [eun, setEun] = useState(initialState);
-  const [message, setMessage] = useState("");
+  const [message] = useState("");
 
   const eun_link = [];
   const eun_alt = [];
@@ -49,16 +48,16 @@ function Eun() {
         message += `${eun[i].alt} `;
       }
     }
-    setGlobalMessage(message);
-  }, [eun]);
+    setEunMessage(message);
+  }, [eun, setEunMessage]);
 
   return (
     <Center>
-      <Box w="1100px" h="1200px" zIndex={3}>
+      <Box w="1100px" h="1000px" zIndex={3}>
         <Flex direction="row" wrap="wrap">
           {eun_link.map((link, index) => {
             return (
-              <Box key={index} w="90px" h="550px" mx=".5rem">
+              <Box key={index} w="75px" h="500px" mx="1rem">
                 <Rnd
                   onDragStop={(e, d) => {
                     if (d.y < -800) {
@@ -85,7 +84,7 @@ function Eun() {
                   default={{
                     x: 0,
                     y: 0,
-                    width: 90,
+                    width: 75,
                     height: 175,
                   }}
                 >

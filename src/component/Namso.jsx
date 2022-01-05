@@ -1,12 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
-import { Box, Image, Flex, Text, Center } from "@chakra-ui/react";
+import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
 import assets from "../assets/assets";
 
 function Namso() {
-  const { globalMessage, setGlobalMessage, addMessage } =
-    useContext(MessageContext);
+  const { setNamsoMessage } = useContext(MessageContext);
 
   const initialState = {
     1: { x: 0, y: 0 },
@@ -22,7 +21,7 @@ function Namso() {
   };
 
   const [namso, setNamso] = useState(initialState);
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
   const namso_link = [];
   const namso_alt = [];
@@ -39,8 +38,8 @@ function Namso() {
         message += `${namso[i].alt} `;
       }
     }
-    setGlobalMessage(message);
-  }, [namso]);
+    setNamsoMessage(message);
+  }, [namso, setNamsoMessage]);
 
   return (
     <Center>
