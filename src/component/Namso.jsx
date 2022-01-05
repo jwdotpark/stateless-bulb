@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
 import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
+import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Namso() {
@@ -41,6 +42,12 @@ function Namso() {
     setNamsoMessage(message);
   }, [namso, setNamsoMessage]);
 
+  const [isClicked, setIsClicked] = useState(false);
+  const MotionBox = motion(Box);
+  const variants = {
+    rotate: { rotate: [0, -30, 0], transition: { duration: 0.5 } },
+  };
+
   return (
     <Center>
       <Box w="1100px" h="350px" zIndex={3}>
@@ -79,7 +86,23 @@ function Namso() {
                   }}
                 >
                   <Box>
-                    <Image src={`${link}`} draggable="false" />
+                    <MotionBox
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.25 }}
+                      onClick={() => {
+                        alert("hi");
+                        setIsClicked(!isClicked);
+                      }}
+                      variants={variants}
+                      animate={{
+                        rotate: isClicked ? "oneClick" : "twoClick",
+                      }}
+                    >
+                      <Image src={`${link}`} draggable="false" />
+                      {index}
+                      {JSON.stringify(isClicked)}
+                    </MotionBox>
                   </Box>
                 </Rnd>
               </Box>
