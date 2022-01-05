@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Image, Flex } from "@chakra-ui/react";
+import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
 import assets from "../assets/assets";
 
@@ -31,40 +31,42 @@ function Base() {
   }
 
   return (
-    <Box m="3rem" w="90%">
-      <Flex direction="row" wrap="wrap">
-        {base_link.map((link, index) => {
-          return (
-            <Box key={index} w="225px" h="150px" mx="-1rem" zIndex={3}>
-              <Rnd
-                onDragStop={(e, d) => {
-                  // set the new position of each base in initialState
-                  setBase({
-                    ...base,
-                    [index + 1]: {
-                      x: d.x,
-                      y: d.y,
-                    },
-                  });
-                }}
-                enableResizing={true}
-                default={{
-                  x: 0,
-                  y: 0,
-                  width: 225,
-                  height: 150,
-                }}
-              >
-                <Box>
-                  <Image src={`${link}`} draggable="false" />
-                </Box>
-              </Rnd>
-            </Box>
-          );
-        })}
-      </Flex>
-      {/* {JSON.stringify(base)} */}
-    </Box>
+    <Center>
+      <Box mt="3rem" w="1100px" h="550px">
+        <Flex direction="row" wrap="wrap" justifyContent="center">
+          {base_link.map((link, index) => {
+            return (
+              <Box key={index} w="215px" h="160px" zIndex={3} mx="-1px">
+                <Rnd
+                  onDragStop={(e, d) => {
+                    // set the new position of each base in initialState
+                    setBase({
+                      ...base,
+                      [index + 1]: {
+                        x: d.x,
+                        y: d.y,
+                      },
+                    });
+                  }}
+                  enableResizing={true}
+                  default={{
+                    x: 0,
+                    y: 0,
+                    width: 225,
+                    height: 165,
+                  }}
+                >
+                  <Box>
+                    <Image src={`${link}`} draggable="false" />
+                  </Box>
+                </Rnd>
+              </Box>
+            );
+          })}
+        </Flex>
+        {/* {JSON.stringify(base)} */}
+      </Box>
+    </Center>
   );
 }
 

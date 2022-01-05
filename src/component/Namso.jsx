@@ -43,7 +43,7 @@ function Namso() {
       <Flex direction="row" wrap="wrap">
         {namso_link.map((link, index) => {
           return (
-            <Box key={index} w="125px" h="225px" mx="-0.75rem">
+            <Box key={index} w="125px" h="225px" mx="-0.5rem">
               <Rnd
                 onDragStop={(e, d) => {
                   if (d.y < 0) {
