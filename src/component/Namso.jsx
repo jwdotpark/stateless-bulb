@@ -90,7 +90,7 @@ function Namso() {
         {/* {JSON.stringify(namso)} */}
         <Center>
           <Box position="absolute" sx={{ top: "600px", left: 0 }}>
-            <Text fontSize="xl">{message}</Text>
+            {/* <Text fontSize="xl">{message}</Text> */}
           </Box>
         </Center>
       </Box>

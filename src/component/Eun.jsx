@@ -49,7 +49,6 @@ function Eun() {
         message += `${eun[i].alt} `;
       }
     }
-    // setMessage(message);
     setGlobalMessage(message);
   }, [eun]);
 
