@@ -1,5 +1,4 @@
 import { Box } from "@chakra-ui/react";
-// import assets from "./assets/assets";
 import Base from "./component/Base";
 import DropZone from "./component/DropZone";
 import Namso from "./component/Namso";

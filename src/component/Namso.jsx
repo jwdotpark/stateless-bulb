@@ -20,15 +20,14 @@ function Namso() {
   const [namso, setNamso] = useState(initialState);
   const [message, setMessage] = useState("");
 
-  // Creating a list of links to the namso assets
   const namso_link = [];
   const namso_alt = [];
-  for (let i in assets.namso) {
+
+  for (let i in namso) {
     namso_link.push(assets.namso[i].link);
     namso_alt.push(assets.namso[i].alt);
   }
 
-  // if one of alt property in namso state is added, accumulate each message to message state
   useEffect(() => {
     let message = "";
     for (let i in namso) {
@@ -83,15 +82,7 @@ function Namso() {
           );
         })}
       </Flex>
-      <br />
-      <br />
-      <br />
-      <br />
       {/* {JSON.stringify(namso)} */}
-      <br />
-      <br />
-      <br />
-      <br />
       <Box position="absolute" m="4rem" sx={{ top: "500px", left: 0 }}>
         <Text fontSize="xl">{message}</Text>
       </Box>
