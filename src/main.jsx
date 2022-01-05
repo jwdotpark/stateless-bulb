@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Box } from "@chakra-ui/react";
 import Noise from "./component/Noise";
 import Base from "./component/Base";

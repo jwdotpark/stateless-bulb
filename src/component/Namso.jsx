@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Image, Flex, Text } from "@chakra-ui/react";
+import { Box, Image, Flex, Text, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
 import assets from "../assets/assets";
 
@@ -39,54 +39,65 @@ function Namso() {
   }, [namso]);
 
   return (
-    <Box m="3rem" w="90%" h="350px" zIndex={3}>
-      <Flex direction="row" wrap="wrap">
-        {namso_link.map((link, index) => {
-          return (
-            <Box key={index} w="125px" h="225px" mx="-0.5rem">
-              <Rnd
-                onDragStop={(e, d) => {
-                  if (d.y < 0) {
-                    setNamso({
-                      ...namso,
-                      [index + 1]: {
-                        x: d.x,
-                        y: d.y,
-                        alt: namso_alt[index],
-                      },
-                    });
-                  } else {
-                    setNamso({
-                      ...namso,
-                      [index + 1]: {
-                        x: d.x,
-                        y: d.y,
-                        alt: "",
-                      },
-                    });
-                  }
-                }}
-                enableResizing={true}
-                default={{
-                  x: 0,
-                  y: 0,
-                  width: 125,
-                  height: 225,
-                }}
-              >
-                <Box>
-                  <Image src={`${link}`} draggable="false" />
-                </Box>
-              </Rnd>
-            </Box>
-          );
-        })}
-      </Flex>
-      {/* {JSON.stringify(namso)} */}
-      <Box position="absolute" m="4rem" sx={{ top: "500px", left: 0 }}>
-        <Text fontSize="xl">{message}</Text>
+    <Center>
+      <Box
+        w="1100px"
+        h="400px"
+        zIndex={3}
+        border="1px"
+        borderColor="#000"
+        borderStyle="dotted"
+      >
+        <Flex direction="row" wrap="wrap">
+          {namso_link.map((link, index) => {
+            return (
+              <Box key={index} w="125px" h="225px" mx="-0.5rem">
+                <Rnd
+                  onDragStop={(e, d) => {
+                    if (d.y < -300) {
+                      setNamso({
+                        ...namso,
+                        [index + 1]: {
+                          x: d.x,
+                          y: d.y,
+                          alt: namso_alt[index],
+                        },
+                      });
+                    } else {
+                      setNamso({
+                        ...namso,
+                        [index + 1]: {
+                          x: d.x,
+                          y: d.y,
+                          alt: "",
+                        },
+                      });
+                    }
+                  }}
+                  enableResizing={true}
+                  default={{
+                    x: 0,
+                    y: 0,
+                    width: 125,
+                    height: 225,
+                  }}
+                >
+                  <Box>
+                    <Image src={`${link}`} draggable="false" />
+                  </Box>
+                </Rnd>
+              </Box>
+            );
+          })}
+        </Flex>
+        {JSON.stringify(namso)}
+        <Center>
+          <Box position="absolute" sx={{ top: "600px", left: 0 }}>
+            <Text fontSize="xl">{message}</Text>
+          </Box>
+        </Center>
       </Box>
-    </Box>
+    </Center>
   );
 }
 
