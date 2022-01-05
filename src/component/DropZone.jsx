@@ -8,20 +8,20 @@ function DropZone() {
   return (
     <>
       <Center>
+        <Box width="80%" align="center">
+          <Text color="#fff" fontSize="6xl" align="justify">
+            {globalMessage}
+          </Text>
+        </Box>
+      </Center>
+      <Center>
         <Box
           border="1px"
           borderColor="#AC957B"
           borderStyle="dotted"
           w="1100px"
-          h="600px"
+          h="800px"
         ></Box>
-      </Center>
-      <Center>
-        <Box width="80%" align="center">
-          <Text color="#fff" fontSize="xl">
-            {globalMessage}
-          </Text>
-        </Box>
       </Center>
     </>
   );

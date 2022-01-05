@@ -31,15 +31,8 @@ function Base() {
   }
 
   return (
-    <Center>
-      <Box
-        mt="3rem"
-        w="1100px"
-        h="550px"
-        border="1px"
-        borderColor="#000"
-        borderStyle="dotted"
-      >
+    <Center mt="9rem">
+      <Box mt="3rem" w="1100px" h="550px">
         <Flex direction="row" wrap="wrap" justifyContent="center">
           {base_link.map((link, index) => {
             return (

@@ -4,7 +4,7 @@ const MessageContext = createContext([]);
 
 // create a message context that accumulates the input
 const MessageProvider = ({ children }) => {
-  const [globalMessage, setGlobalMessage] = useState(["global"]);
+  const [globalMessage, setGlobalMessage] = useState([""]);
 
   const addMessage = (message) => {
     setGlobalMessage([...globalMessage, message]);

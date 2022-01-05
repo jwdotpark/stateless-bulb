@@ -44,14 +44,7 @@ function Namso() {
 
   return (
     <Center>
-      <Box
-        w="1100px"
-        h="400px"
-        zIndex={3}
-        border="1px"
-        borderColor="#000"
-        borderStyle="dotted"
-      >
+      <Box w="1100px" h="350px" zIndex={3}>
         <Flex direction="row" wrap="wrap">
           {namso_link.map((link, index) => {
             return (
@@ -82,8 +75,8 @@ function Namso() {
                   default={{
                     x: 0,
                     y: 0,
-                    width: 125,
-                    height: 225,
+                    width: 130,
+                    height: 200,
                   }}
                 >
                   <Box>
