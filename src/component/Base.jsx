@@ -43,7 +43,7 @@ function Base() {
         <Flex direction="row" wrap="wrap" justifyContent="center">
           {base_link.map((link, index) => {
             return (
-              <Box key={index} w="215px" h="160px" zIndex={3} mx="-1px">
+              <Box key={index} w="215px" h="160px" zIndex={4} mx="-1px">
                 <Rnd
                   onDragStop={(e, d) => {
                     // set the new position of each base in initialState

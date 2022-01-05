@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MessageContext } from "../context/MessageContext";
 import { Box, Image, Flex, Text, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
 import assets from "../assets/assets";
 
 function Namso() {
+  const { globalMessage, setGlobalMessage, addMessage } =
+    useContext(MessageContext);
+
   const initialState = {
     1: { x: 0, y: 0 },
     2: { x: 0, y: 0 },
@@ -35,7 +39,7 @@ function Namso() {
         message += `${namso[i].alt} `;
       }
     }
-    setMessage(message);
+    setGlobalMessage(message);
   }, [namso]);
 
   return (
@@ -90,7 +94,7 @@ function Namso() {
             );
           })}
         </Flex>
-        {JSON.stringify(namso)}
+        {/* {JSON.stringify(namso)} */}
         <Center>
           <Box position="absolute" sx={{ top: "600px", left: 0 }}>
             <Text fontSize="xl">{message}</Text>
