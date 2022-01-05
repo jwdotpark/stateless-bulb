@@ -7,7 +7,12 @@ const MessageProvider = ({ children }) => {
   const [globalMessage, setGlobalMessage] = useState([""]);
 
   const addMessage = (message) => {
-    setGlobalMessage([...globalMessage, message]);
+    let newMessage = [];
+    // if message in
+    // message.push()
+    // if message out
+    // message.pop()
+    setGlobalMessage([...globalMessage, newMessage]);
   };
 
   return (
