@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
+import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Base() {
@@ -31,12 +32,12 @@ function Base() {
   }
 
   return (
-    <Center mt="9rem">
-      <Box mt="3rem" w="1100px" h="550px">
+    <Center mt="3rem">
+      <Box w="1100px" border="1px">
         <Flex direction="row" wrap="wrap" justifyContent="center">
           {base_link.map((link, index) => {
             return (
-              <Box key={index} w="215px" h="160px" zIndex={4} mx="-1px">
+              <Box key={index} w="145px" h="110px" zIndex={4} mx="-5px">
                 <Rnd
                   onDragStop={(e, d) => {
                     // set the new position of each base in initialState
@@ -49,11 +50,12 @@ function Base() {
                     });
                   }}
                   enableResizing={true}
+                  lockAspectRatio={true}
                   default={{
                     x: 0,
                     y: 0,
-                    width: 225,
-                    height: 165,
+                    width: 185,
+                    // height: 165,
                   }}
                 >
                   <Box>

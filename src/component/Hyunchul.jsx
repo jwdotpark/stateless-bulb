@@ -2,20 +2,21 @@ import { useState, useEffect, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
 import { Box, Image, Flex, Text, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
+import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Hyunchul() {
   const initialState = {
-    1: { x: 0, y: 0 },
-    2: { x: 0, y: 0 },
-    3: { x: 0, y: 0 },
-    4: { x: 0, y: 0 },
-    5: { x: 0, y: 0 },
-    6: { x: 0, y: 0 },
-    7: { x: 0, y: 0 },
-    8: { x: 0, y: 0 },
-    9: { x: 0, y: 0 },
-    10: { x: 0, y: 0 },
+    1: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    2: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    3: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    4: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    5: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    6: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    7: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    8: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    9: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    10: { x: 0, y: 0, isClicked: false, clickNum: 0 },
   };
 
   const { setHyunMessage } = useContext(MessageContext);
@@ -41,6 +42,11 @@ function Hyunchul() {
     setHyunMessage(message);
   }, [hyun, setHyunMessage]);
 
+  const variants = {
+    rotate: { rotate: [0, -30, 0], transition: { duration: 0.5 } },
+    stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
+  };
+
   return (
     <Center>
       <Box w="1100px" h="1200px" zIndex={3}>
@@ -57,6 +63,8 @@ function Hyunchul() {
                           x: d.x,
                           y: d.y,
                           alt: hyun_alt[index],
+                          isClicked: hyun[index + 1].isClicked,
+                          clickNum: hyun[index + 1].clickNum,
                         },
                       });
                     } else {
@@ -66,29 +74,60 @@ function Hyunchul() {
                           x: d.x,
                           y: d.y,
                           alt: "",
+                          isClicked: hyun[index + 1].isClicked,
+                          clickNum: hyun[index + 1].clickNum,
                         },
                       });
                     }
                   }}
                   enableResizing={true}
+                  lockAspectRatio={true}
                   default={{
                     x: 0,
                     y: 0,
                     width: 120,
-                    height: 175,
+                    // height: 175,
                   }}
                 >
-                  <Box>
-                    <Image src={`${link}`} draggable="false" />
+                  <Box border="1px">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.25 }}
+                      variants={variants}
+                      animate={{
+                        rotate:
+                          hyun[index + 1].isClicked && hyun[index + 1].alt
+                            ? hyun[index + 1].clickNum % 4 === 0
+                              ? -20
+                              : hyun[index + 1].clickNum % 4 === 1
+                              ? 20
+                              : hyun[index + 1].clickNUm % 4 === 2
+                              ? 0
+                              : -20
+                            : 0,
+                      }}
+                      onTap={() => {
+                        setHyun({
+                          ...hyun,
+                          [index + 1]: {
+                            isClicked: !hyun[index + 1].isClicked,
+                            clickNum: hyun[index + 1].clickNum + 1,
+                          },
+                        });
+                      }}
+                    >
+                      <Image src={`${link}`} draggable="false" />
+                    </motion.div>
                   </Box>
                 </Rnd>
               </Box>
             );
           })}
         </Flex>
-        {JSON.stringify(hyun)}
+        {/* {JSON.stringify(hyun)} */}
         <Box position="absolute" m="4rem" sx={{ top: "500px", left: 0 }}>
-          <Text fontSize="xl">{message}</Text>
+          {/* <Text fontSize="xl">{message}</Text> */}
         </Box>
       </Box>
     </Center>

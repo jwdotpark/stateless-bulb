@@ -41,13 +41,6 @@ function Namso() {
     setNamsoMessage(message);
   }, [namso, setNamsoMessage]);
 
-  // const [isClicked, setIsClicked] = useState(false);
-
-  // const variants = {
-  //   rotate: { rotate: [-30], transition: { duration: 0.5 } },
-  //   stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
-  // };
-
   const variants = {
     rotate: { rotate: [0, -30, 0], transition: { duration: 0.5 } },
     stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
@@ -123,9 +116,6 @@ function Namso() {
                       }}
                     >
                       <Image src={`${link}`} draggable="false" />
-                      isclicked: {JSON.stringify(namso[index + 1].isClicked)}
-                      <br />
-                      clicknum: {JSON.stringify(namso[index + 1].clickNum)}
                     </motion.div>
                   </Box>
                 </Rnd>
@@ -133,7 +123,7 @@ function Namso() {
             );
           })}
         </Flex>
-        {JSON.stringify(namso)}
+        {/* {JSON.stringify(namso)} */}
         <Center>
           <Box position="absolute" sx={{ top: "600px", left: 0 }}>
             {/* <Text fontSize="xl">{message}</Text> */}
