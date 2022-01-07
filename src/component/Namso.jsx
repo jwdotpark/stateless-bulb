@@ -9,20 +9,19 @@ function Namso() {
   const { setNamsoMessage } = useContext(MessageContext);
 
   const initialState = {
-    1: { x: 0, y: 0 },
-    2: { x: 0, y: 0 },
-    3: { x: 0, y: 0 },
-    4: { x: 0, y: 0 },
-    5: { x: 0, y: 0 },
-    6: { x: 0, y: 0 },
-    7: { x: 0, y: 0 },
-    8: { x: 0, y: 0 },
-    9: { x: 0, y: 0 },
-    10: { x: 0, y: 0 },
+    1: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    2: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    3: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    4: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    5: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    6: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    7: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    8: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    9: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    10: { x: 0, y: 0, isClicked: false, clickNum: 0 },
   };
 
   const [namso, setNamso] = useState(initialState);
-  // const [message, setMessage] = useState("");
 
   const namso_link = [];
   const namso_alt = [];
@@ -42,10 +41,16 @@ function Namso() {
     setNamsoMessage(message);
   }, [namso, setNamsoMessage]);
 
-  const [isClicked, setIsClicked] = useState(false);
-  const MotionBox = motion(Box);
+  // const [isClicked, setIsClicked] = useState(false);
+
+  // const variants = {
+  //   rotate: { rotate: [-30], transition: { duration: 0.5 } },
+  //   stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
+  // };
+
   const variants = {
     rotate: { rotate: [0, -30, 0], transition: { duration: 0.5 } },
+    stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
   };
 
   return (
@@ -54,7 +59,7 @@ function Namso() {
         <Flex direction="row" wrap="wrap">
           {namso_link.map((link, index) => {
             return (
-              <Box key={index} w="125px" h="225px" mx="-0.5rem">
+              <Box key={index} w="125px" h="300px" mx="-0.5rem">
                 <Rnd
                   onDragStop={(e, d) => {
                     if (d.y < -300) {
@@ -64,6 +69,8 @@ function Namso() {
                           x: d.x,
                           y: d.y,
                           alt: namso_alt[index],
+                          isClicked: namso[index + 1].isClicked,
+                          clickNum: namso[index + 1].clickNum,
                         },
                       });
                     } else {
@@ -73,43 +80,60 @@ function Namso() {
                           x: d.x,
                           y: d.y,
                           alt: "",
+                          isClicked: namso[index + 1].isClicked,
+                          clickNum: namso[index + 1].clickNum,
                         },
                       });
                     }
                   }}
                   enableResizing={true}
+                  lockAspectRatio={true}
                   default={{
                     x: 0,
                     y: 0,
                     width: 130,
-                    height: 200,
                   }}
                 >
-                  <Box>
-                    <MotionBox
-                      whileHover={{ scale: 1.05 }}
+                  <Box border="1px">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.25 }}
-                      onClick={() => {
-                        alert("hi");
-                        setIsClicked(!isClicked);
-                      }}
                       variants={variants}
                       animate={{
-                        rotate: isClicked ? "oneClick" : "twoClick",
+                        rotate:
+                          namso[index + 1].isClicked && namso[index + 1].alt
+                            ? namso[index + 1].clickNum % 4 === 0
+                              ? -20
+                              : namso[index + 1].clickNum % 4 === 1
+                              ? 20
+                              : namso[index + 1].clickNUm % 4 === 2
+                              ? 0
+                              : -20
+                            : 0,
+                      }}
+                      onTap={() => {
+                        setNamso({
+                          ...namso,
+                          [index + 1]: {
+                            isClicked: !namso[index + 1].isClicked,
+                            clickNum: namso[index + 1].clickNum + 1,
+                          },
+                        });
                       }}
                     >
                       <Image src={`${link}`} draggable="false" />
-                      {index}
-                      {JSON.stringify(isClicked)}
-                    </MotionBox>
+                      isclicked: {JSON.stringify(namso[index + 1].isClicked)}
+                      <br />
+                      clicknum: {JSON.stringify(namso[index + 1].clickNum)}
+                    </motion.div>
                   </Box>
                 </Rnd>
               </Box>
             );
           })}
         </Flex>
-        {/* {JSON.stringify(namso)} */}
+        {JSON.stringify(namso)}
         <Center>
           <Box position="absolute" sx={{ top: "600px", left: 0 }}>
             {/* <Text fontSize="xl">{message}</Text> */}
