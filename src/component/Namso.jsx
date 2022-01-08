@@ -87,7 +87,7 @@ function Namso() {
                     width: 130,
                   }}
                 >
-                  <Box border="1px">
+                  <Box>
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}

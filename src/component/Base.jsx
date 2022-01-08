@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
-import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Base() {
@@ -32,8 +31,8 @@ function Base() {
   }
 
   return (
-    <Center mt="3rem">
-      <Box w="1100px" border="1px">
+    <Center my="3rem">
+      <Box w="1100px">
         <Flex direction="row" wrap="wrap" justifyContent="center">
           {base_link.map((link, index) => {
             return (
