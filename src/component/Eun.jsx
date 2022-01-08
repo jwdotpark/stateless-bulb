@@ -59,11 +59,11 @@ function Eun() {
 
   return (
     <Center>
-      <Box w="1100px" h="1000px" zIndex={3}>
+      <Box w="1100px" zIndex={3}>
         <Flex direction="row" wrap="wrap">
           {eun_link.map((link, index) => {
             return (
-              <Box key={index} w="75px" h="500px" mx="1rem">
+              <Box key={index} w="55px" h="500px" mx="-1.5px">
                 <Rnd
                   onDragStop={(e, d) => {
                     if (d.y < -800) {
@@ -99,7 +99,7 @@ function Eun() {
                     // height: 175,
                   }}
                 >
-                  <Box border="1px">
+                  <Box>
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}

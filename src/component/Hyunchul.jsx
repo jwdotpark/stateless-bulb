@@ -49,7 +49,7 @@ function Hyunchul() {
 
   return (
     <Center>
-      <Box w="1100px" h="1200px" zIndex={3}>
+      <Box w="1100px" zIndex={3}>
         <Flex direction="row" wrap="wrap">
           {hyun_link.map((link, index) => {
             return (
@@ -89,7 +89,7 @@ function Hyunchul() {
                     // height: 175,
                   }}
                 >
-                  <Box border="1px">
+                  <Box>
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
