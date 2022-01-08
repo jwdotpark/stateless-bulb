@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MessageContext } from "../context/MessageContext";
 import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
 import assets from "../assets/assets";
@@ -22,6 +23,8 @@ function Base() {
     15: { x: 0, y: 0 },
   };
 
+  const { setBasePos } = useContext(MessageContext);
+
   const [base, setBase] = useState(initialState);
 
   // Creating a list of links to the base assets
@@ -40,13 +43,18 @@ function Base() {
                 <Rnd
                   onDragStop={(e, d) => {
                     // set the new position of each base in initialState
-                    setBase({
-                      ...base,
-                      [index + 1]: {
-                        x: d.x,
-                        y: d.y,
-                      },
-                    });
+                    if (d.x !== 0 && d.y > 300) {
+                      setBase({
+                        ...base,
+                        [index + 1]: {
+                          x: d.x,
+                          y: d.y,
+                        },
+                      });
+                      setBasePos(true);
+                    } else {
+                      setBasePos(false);
+                    }
                   }}
                   enableResizing={true}
                   lockAspectRatio={true}
@@ -65,7 +73,6 @@ function Base() {
             );
           })}
         </Flex>
-        {/* {JSON.stringify(base)} */}
       </Box>
     </Center>
   );

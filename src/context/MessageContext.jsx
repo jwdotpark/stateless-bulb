@@ -7,7 +7,7 @@ const MessageProvider = ({ children }) => {
   const [namsoMessage, setNamsoMessage] = useState("");
   const [eunMessage, setEunMessage] = useState("");
   const [hyunMessage, setHyunMessage] = useState("");
-
+  const [basePos, setBasePos] = useState(false);
   return (
     <MessageContext.Provider
       value={{
@@ -17,6 +17,8 @@ const MessageProvider = ({ children }) => {
         setEunMessage,
         hyunMessage,
         setHyunMessage,
+        basePos,
+        setBasePos,
       }}
     >
       {children}

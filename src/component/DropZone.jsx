@@ -3,7 +3,8 @@ import { MessageContext } from "../context/MessageContext";
 import { Box, Center, Text } from "@chakra-ui/react";
 
 function DropZone() {
-  const { namsoMessage, eunMessage, hyunMessage } = useContext(MessageContext);
+  const { namsoMessage, eunMessage, hyunMessage, basePos } =
+    useContext(MessageContext);
 
   // dynamic font size
   const textVolume = [];
@@ -19,14 +20,12 @@ function DropZone() {
   useEffect(() => {
     const textBox = document.getElementById("text-box");
     textVolume.push(textBox.textContent);
-    console.log(charCount());
   });
 
   const [fontSize, setFontSize] = useState("");
 
   // helper function that returns a font size based on charCount()
   const adjustFontSize = () => {
-    console.log("adjustfontsize fired");
     if (fontSize < 100) {
       return "6xl";
     } else if (fontSize < 200) {
@@ -35,6 +34,8 @@ function DropZone() {
       return "4xl";
     }
   };
+
+  const combinedMessage = namsoMessage + eunMessage + hyunMessage;
 
   return (
     <>
@@ -61,10 +62,7 @@ function DropZone() {
               fontFamily: "Nanum Myeongjo",
             }}
           >
-            {fontSize}
-            {namsoMessage}
-            {eunMessage}
-            {hyunMessage}
+            {basePos && combinedMessage}
           </Text>
         </Box>
       </Center>
