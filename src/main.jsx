@@ -7,8 +7,6 @@ import Eun from "./component/Eun";
 import Hyunchul from "./component/Hyunchul";
 
 function Main() {
-  // const { globalMessage, addMessage } = useContext(MessageContext);
-
   return (
     <Box bg="#b89e81">
       <Noise />
