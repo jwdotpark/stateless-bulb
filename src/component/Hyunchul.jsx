@@ -56,7 +56,7 @@ function Hyunchul() {
               <Box key={index} w="120px" h="550px" mx="-.5rem">
                 <Rnd
                   onDragStop={(e, d) => {
-                    if (d.y < -1700) {
+                    if (d.y < -1400) {
                       setHyun({
                         ...hyun,
                         [index + 1]: {
@@ -125,10 +125,8 @@ function Hyunchul() {
             );
           })}
         </Flex>
-        {/* {JSON.stringify(hyun)} */}
-        <Box position="absolute" m="4rem" sx={{ top: "500px", left: 0 }}>
-          {/* <Text fontSize="xl">{message}</Text> */}
-        </Box>
+        {JSON.stringify(hyun)}
+        <Box position="absolute" m="4rem" sx={{ top: "500px", left: 0 }}></Box>
       </Box>
     </Center>
   );

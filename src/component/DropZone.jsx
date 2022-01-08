@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
 import { Box, Center, Text } from "@chakra-ui/react";
+import TextTransition, { presets } from "react-text-transition";
 
 function DropZone() {
   const { namsoMessage, eunMessage, hyunMessage, basePos } =
@@ -27,15 +28,18 @@ function DropZone() {
   // helper function that returns a font size based on charCount()
   const adjustFontSize = () => {
     if (fontSize < 100) {
-      return "6xl";
-    } else if (fontSize < 200) {
-      return "5xl";
+      return fontSize + "px";
+    } else if (fontSize < 150) {
+      return "4rem";
+    } else if (fontSize > 200) {
+      return "2.5rem";
     } else {
-      return "4xl";
+      return "4.5rem";
     }
   };
 
   const combinedMessage = namsoMessage + eunMessage + hyunMessage;
+  // namsoMessage + eunMessage + hyunMessage;
 
   return (
     <>
@@ -55,14 +59,19 @@ function DropZone() {
           <Text
             id="text-box"
             h="auto"
-            fontSize={adjustFontSize()}
+            fontSize={adjustFontSize}
             align="justify"
             color="rgba(248, 245, 239, 0.75)"
             css={{
               fontFamily: "Nanum Myeongjo",
             }}
           >
-            {basePos && combinedMessage}
+            {basePos && (
+              <TextTransition
+                text={combinedMessage}
+                springConfig={presets.molasses}
+              ></TextTransition>
+            )}
           </Text>
         </Box>
       </Center>
