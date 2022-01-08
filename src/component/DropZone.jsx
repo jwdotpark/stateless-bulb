@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import TextTransition, { presets } from "react-text-transition";
 
 function DropZone() {
@@ -26,6 +26,7 @@ function DropZone() {
   const [fontSize, setFontSize] = useState("");
 
   // helper function that returns a font size based on charCount()
+
   const adjustFontSize = () => {
     if (fontSize < 100) {
       return "3rem";
@@ -68,10 +69,11 @@ function DropZone() {
               setFontSize(charCount());
             }}
           ></Box>
-          <Text
+          <Box
             id="text-box"
             h="auto"
             fontSize={adjustFontSize}
+            // fontSize="6xl"
             align="justify"
             color="rgba(248, 245, 239, 0.75)"
             css={{
@@ -88,10 +90,10 @@ function DropZone() {
                   setFontSize(charCount());
                 }}
                 text={combinedMessage}
-                springConfig={presets.slow}
+                springConfig={presets.molasses}
               />
             )}
-          </Text>
+          </Box>
         </Box>
       </Center>
       <Center>

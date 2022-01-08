@@ -89,24 +89,22 @@ function Namso() {
                 >
                   <Box>
                     <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.05 }}
+                      // whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.25 }}
                       variants={variants}
                       animate={{
-                        rotate:
-                          namso[index + 1].isClicked && namso[index + 1].alt
-                            ? namso[index + 1].clickNum % 4 === 0
-                              ? -20
-                              : namso[index + 1].clickNum % 4 === 1
-                              ? 20
-                              : namso[index + 1].clickNUm % 4 === 2
-                              ? 0
-                              : -20
-                            : 0,
+                        rotate: namso[index + 1].isClicked
+                          ? namso[index + 1].clickNum % 4 === 0
+                            ? -20
+                            : namso[index + 1].clickNum % 4 === 1
+                            ? 20
+                            : namso[index + 1].clickNUm % 4 === 2
+                            ? 0
+                            : -20
+                          : 0,
                       }}
                       onDoubleClick={() => {
-                        console.log("db clicked");
                         setNamso({
                           ...namso,
                           [index + 1]: {

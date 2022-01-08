@@ -101,23 +101,22 @@ function Eun() {
                 >
                   <Box>
                     <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.05 }}
+                      // whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.25 }}
                       variants={variants}
                       animate={{
-                        rotate:
-                          eun[index + 1].isClicked && eun[index + 1].alt
-                            ? eun[index + 1].clickNum % 4 === 0
-                              ? -20
-                              : eun[index + 1].clickNum % 4 === 1
-                              ? 20
-                              : eun[index + 1].clickNUm % 4 === 2
-                              ? 0
-                              : -20
-                            : 0,
+                        rotate: eun[index + 1].isClicked
+                          ? eun[index + 1].clickNum % 4 === 0
+                            ? -20
+                            : eun[index + 1].clickNum % 4 === 1
+                            ? 20
+                            : eun[index + 1].clickNUm % 4 === 2
+                            ? 0
+                            : -20
+                          : 0,
                       }}
-                      onTap={() => {
+                      onDoubleClick={() => {
                         setEun({
                           ...eun,
                           [index + 1]: {

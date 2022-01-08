@@ -91,23 +91,22 @@ function Hyunchul() {
                 >
                   <Box>
                     <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.05 }}
+                      // whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.25 }}
                       variants={variants}
                       animate={{
-                        rotate:
-                          hyun[index + 1].isClicked && hyun[index + 1].alt
-                            ? hyun[index + 1].clickNum % 4 === 0
-                              ? -20
-                              : hyun[index + 1].clickNum % 4 === 1
-                              ? 20
-                              : hyun[index + 1].clickNUm % 4 === 2
-                              ? 0
-                              : -20
-                            : 0,
+                        rotate: hyun[index + 1].isClicked
+                          ? hyun[index + 1].clickNum % 4 === 0
+                            ? -20
+                            : hyun[index + 1].clickNum % 4 === 1
+                            ? 20
+                            : hyun[index + 1].clickNUm % 4 === 2
+                            ? 0
+                            : -20
+                          : 0,
                       }}
-                      onTap={() => {
+                      onDoubleClick={() => {
                         setHyun({
                           ...hyun,
                           [index + 1]: {
