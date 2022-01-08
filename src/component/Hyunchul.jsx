@@ -125,7 +125,7 @@ function Hyunchul() {
             );
           })}
         </Flex>
-        {JSON.stringify(hyun)}
+        {/* {JSON.stringify(hyun)} */}
         <Box position="absolute" m="4rem" sx={{ top: "500px", left: 0 }}></Box>
       </Box>
     </Center>

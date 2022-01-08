@@ -58,30 +58,37 @@ function DropZone() {
             setFontSize(charCount());
           }}
         >
-          <Text
-            id="text-box"
-            h="auto"
-            fontSize={adjustFontSize}
-            align="justify"
-            color="rgba(248, 245, 239, 0.75)"
-            css={{
-              fontFamily: "Nanum Myeongjo",
-            }}
+          <Box
+            zIndex="20"
             onMouseEnter={() => {
               setFontSize(charCount());
             }}
-            // noOfLines={10}
           >
-            {basePos && (
-              <TextTransition
-                onMouseEnter={() => {
-                  setFontSize(charCount());
-                }}
-                text={combinedMessage}
-                springConfig={presets.default}
-              ></TextTransition>
-            )}
-          </Text>
+            <Text
+              id="text-box"
+              h="auto"
+              fontSize={adjustFontSize}
+              align="justify"
+              color="rgba(248, 245, 239, 0.75)"
+              css={{
+                fontFamily: "Nanum Myeongjo",
+              }}
+              onMouseEnter={() => {
+                setFontSize(charCount());
+              }}
+              // noOfLines={10}
+            >
+              {basePos && (
+                <TextTransition
+                  onMouseEnter={() => {
+                    setFontSize(charCount());
+                  }}
+                  text={combinedMessage}
+                  springConfig={presets.default}
+                ></TextTransition>
+              )}
+            </Text>
+          </Box>
         </Box>
       </Center>
       <Center>
