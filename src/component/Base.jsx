@@ -23,7 +23,7 @@ function Base() {
     15: { x: 0, y: 0 },
   };
 
-  const { setBasePos } = useContext(MessageContext);
+  const { basePos, setBasePos } = useContext(MessageContext);
 
   const [base, setBase] = useState(initialState);
 
@@ -42,6 +42,7 @@ function Base() {
               <Box key={index} w="145px" h="110px" zIndex={4} mx="-5px">
                 <Rnd
                   onDragStop={(e, d) => {
+                    console.log(d);
                     // set the new position of each base in initialState
                     if (d.x !== 0 && d.y > 300) {
                       setBase({
@@ -52,7 +53,14 @@ function Base() {
                         },
                       });
                       setBasePos(true);
-                    } else {
+                    } else if (d.x !== 0 && d.y < 300) {
+                      setBase({
+                        ...base,
+                        [index + 1]: {
+                          x: d.x,
+                          y: d.y,
+                        },
+                      });
                       setBasePos(false);
                     }
                   }}

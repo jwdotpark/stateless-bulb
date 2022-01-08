@@ -3,7 +3,6 @@ import { Box } from "@chakra-ui/react";
 function Noise() {
   return (
     <Box
-      border="1px solid red"
       position="absolute"
       top="0"
       w="100%"
