@@ -23,7 +23,7 @@ function Base() {
     15: { x: 0, y: 0 },
   };
 
-  const { basePos, setBasePos } = useContext(MessageContext);
+  const { setBasePos } = useContext(MessageContext);
 
   const [base, setBase] = useState(initialState);
 
