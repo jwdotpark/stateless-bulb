@@ -28,13 +28,13 @@ function DropZone() {
   // helper function that returns a font size based on charCount()
   const adjustFontSize = () => {
     if (fontSize < 100) {
-      return "4.5rem";
+      return "3rem";
     } else if (fontSize < 150) {
-      return "4rem";
+      return "2.75rem";
     } else if (fontSize > 200) {
       return "2.5rem";
     } else {
-      return "4.5rem";
+      return "3rem";
     }
   };
 
@@ -59,36 +59,39 @@ function DropZone() {
           }}
         >
           <Box
-            zIndex="20"
+            position="absolute"
+            zIndex="999"
+            left="120px"
+            h="720px"
+            w="1100px"
             onMouseEnter={() => {
               setFontSize(charCount());
             }}
+          ></Box>
+          <Text
+            id="text-box"
+            h="auto"
+            fontSize={adjustFontSize}
+            align="justify"
+            color="rgba(248, 245, 239, 0.75)"
+            css={{
+              fontFamily: "Nanum Myeongjo",
+            }}
+            onMouseEnter={() => {
+              setFontSize(charCount());
+            }}
+            // noOfLines={10}
           >
-            <Text
-              id="text-box"
-              h="auto"
-              fontSize={adjustFontSize}
-              align="justify"
-              color="rgba(248, 245, 239, 0.75)"
-              css={{
-                fontFamily: "Nanum Myeongjo",
-              }}
-              onMouseEnter={() => {
-                setFontSize(charCount());
-              }}
-              // noOfLines={10}
-            >
-              {basePos && (
-                <TextTransition
-                  onMouseEnter={() => {
-                    setFontSize(charCount());
-                  }}
-                  text={combinedMessage}
-                  springConfig={presets.default}
-                ></TextTransition>
-              )}
-            </Text>
-          </Box>
+            {basePos && (
+              <TextTransition
+                onMouseEnter={() => {
+                  setFontSize(charCount());
+                }}
+                text={combinedMessage}
+                springConfig={presets.slow}
+              />
+            )}
+          </Text>
         </Box>
       </Center>
       <Center>

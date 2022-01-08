@@ -105,7 +105,8 @@ function Namso() {
                               : -20
                             : 0,
                       }}
-                      onTap={() => {
+                      onDoubleClick={() => {
+                        console.log("db clicked");
                         setNamso({
                           ...namso,
                           [index + 1]: {

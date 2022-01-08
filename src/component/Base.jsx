@@ -36,7 +36,7 @@ function Base() {
   return (
     <Center my="3rem">
       <Box w="1100px">
-        <Flex direction="row" wrap="wrap" justifyContent="center">
+        <Flex direction="row" wrap="wrap" justifyContent="space-evenly">
           {base_link.map((link, index) => {
             return (
               <Box key={index} w="145px" h="110px" zIndex={4} mx="-5px">
