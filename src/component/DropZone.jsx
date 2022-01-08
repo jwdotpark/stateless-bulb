@@ -40,7 +40,7 @@ function DropZone() {
     <>
       <Center>
         <Box
-          my="9rem"
+          mt="5rem"
           zIndex="2"
           maxW="690px"
           minW="420px"
