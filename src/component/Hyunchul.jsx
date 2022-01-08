@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
-import { Box, Image, Flex, Text, Center } from "@chakra-ui/react";
+import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
 import { motion } from "framer-motion";
 import assets from "../assets/assets";
@@ -22,7 +22,7 @@ function Hyunchul() {
   const { setHyunMessage } = useContext(MessageContext);
 
   const [hyun, setHyun] = useState(initialState);
-  const [message] = useState("");
+  // const [message] = useState("");
 
   const hyun_link = [];
   const hyun_alt = [];

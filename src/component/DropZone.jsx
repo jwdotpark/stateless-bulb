@@ -53,11 +53,10 @@ function DropZone() {
         >
           <Text
             id="text-box"
-            color="#fff"
             h="auto"
             fontSize={adjustFontSize()}
             align="justify"
-            color="rgba(248, 245, 239, 0.6)"
+            color="rgba(248, 245, 239, 0.75)"
             css={{
               fontFamily: "Nanum Myeongjo",
             }}
