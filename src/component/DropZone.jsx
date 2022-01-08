@@ -28,7 +28,7 @@ function DropZone() {
   // helper function that returns a font size based on charCount()
   const adjustFontSize = () => {
     if (fontSize < 100) {
-      return fontSize + "px";
+      return "4.5rem";
     } else if (fontSize < 150) {
       return "4rem";
     } else if (fontSize > 200) {
@@ -49,6 +49,8 @@ function DropZone() {
           zIndex="2"
           maxW="690px"
           minW="420px"
+          // minH="600px"
+          maxH="900px"
           h="50%"
           align="center"
           id="textBoxContainer"
@@ -65,11 +67,18 @@ function DropZone() {
             css={{
               fontFamily: "Nanum Myeongjo",
             }}
+            onMouseEnter={() => {
+              setFontSize(charCount());
+            }}
+            // noOfLines={10}
           >
             {basePos && (
               <TextTransition
+                onMouseEnter={() => {
+                  setFontSize(charCount());
+                }}
                 text={combinedMessage}
-                springConfig={presets.molasses}
+                springConfig={presets.default}
               ></TextTransition>
             )}
           </Text>
