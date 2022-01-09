@@ -64,6 +64,9 @@ function Base() {
                       setBasePos(false);
                     }
                   }}
+                  style={{
+                    cursor: "grab",
+                  }}
                   enableResizing={true}
                   lockAspectRatio={true}
                   default={{

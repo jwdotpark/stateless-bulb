@@ -105,6 +105,9 @@ function Eun() {
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.25 }}
                       variants={variants}
+                      style={{
+                        cursor: "grab",
+                      }}
                       animate={{
                         rotate: eun[index + 1].isClicked
                           ? eun[index + 1].clickNum % 4 === 0
