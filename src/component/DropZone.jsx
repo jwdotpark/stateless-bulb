@@ -70,8 +70,10 @@ function DropZone() {
             }}
           ></Box>
           <Box
+            border="1px"
             id="text-box"
-            h="auto"
+            w="690px"
+            h="600px"
             fontSize={adjustFontSize}
             // fontSize="6xl"
             align="justify"

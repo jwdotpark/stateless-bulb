@@ -129,7 +129,7 @@ function Eun() {
                         });
                       }}
                     >
-                      <Image src={`${link}`} draggable="false" />
+                      <Image src={`${link}`} draggable="false" loading="lazy" />
                     </motion.div>
                   </Box>
                 </Rnd>
