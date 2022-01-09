@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
 import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
+import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Base() {
@@ -77,7 +78,16 @@ function Base() {
                   }}
                 >
                   <Box>
-                    <Image src={`${link}`} draggable="false" />
+                    <motion.div
+                      // whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ duration: 0.25 }}
+                      style={{
+                        cursor: "grab",
+                      }}
+                    >
+                      <Image src={`${link}`} draggable="false" />
+                    </motion.div>
                   </Box>
                 </Rnd>
               </Box>
