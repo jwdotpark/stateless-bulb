@@ -129,7 +129,23 @@ function Eun() {
                         });
                       }}
                     >
-                      <Image src={`${link}`} draggable="false" loading="lazy" />
+                      {eun_alt[index] ===
+                      "가족이 있는 곳의 국적을 갖고 싶어요" ? (
+                        <Image
+                          src={`${link}`}
+                          draggable="false"
+                          loading="lazy"
+                          w="50px"
+                        />
+                      ) : (
+                        <Image
+                          src={`${link}`}
+                          draggable="false"
+                          loading="lazy"
+                        />
+                      )}
+
+                      {/* {JSON.stringify(eun_link[9])} */}
                     </motion.div>
                   </Box>
                 </Rnd>

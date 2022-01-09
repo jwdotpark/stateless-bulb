@@ -60,17 +60,6 @@ function DropZone() {
           }}
         >
           <Box
-            position="absolute"
-            zIndex="999"
-            left="120px"
-            h="720px"
-            w="1100px"
-            onMouseEnter={() => {
-              setFontSize(charCount());
-            }}
-          ></Box>
-          <Box
-            border="1px"
             id="text-box"
             w="690px"
             h="600px"
@@ -97,9 +86,6 @@ function DropZone() {
             )}
           </Box>
         </Box>
-      </Center>
-      <Center>
-        <Box w="1100px" h="800px"></Box>
       </Center>
     </>
   );

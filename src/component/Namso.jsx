@@ -48,7 +48,7 @@ function Namso() {
 
   return (
     <Center>
-      <Box w="1100px" h="350px" zIndex={3}>
+      <Box w="1100px" h="350px" zIndex={3} my="6rem">
         <Flex direction="row" wrap="wrap">
           {namso_link.map((link, index) => {
             return (
