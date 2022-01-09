@@ -101,8 +101,8 @@ function Eun() {
                 >
                   <Box>
                     <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      // whileTap={{ scale: 0.95 }}
+                      // whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.25 }}
                       variants={variants}
                       animate={{
