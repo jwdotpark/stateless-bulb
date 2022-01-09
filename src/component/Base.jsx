@@ -43,7 +43,6 @@ function Base() {
               <Box key={index} w="145px" h="110px" zIndex={4} mx="-5px">
                 <Rnd
                   onDragStop={(e, d) => {
-                    console.log(d);
                     // set the new position of each base in initialState
                     if (d.x !== 0 && d.y > 300) {
                       setBase({

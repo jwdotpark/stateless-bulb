@@ -41,11 +41,6 @@ function Namso() {
     setNamsoMessage(message);
   }, [namso, setNamsoMessage]);
 
-  const variants = {
-    rotate: { rotate: [0, -30, 0], transition: { duration: 0.5 } },
-    stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
-  };
-
   return (
     <Center>
       <Box w="1100px" h="350px" zIndex={3} mt="6rem">
@@ -92,7 +87,6 @@ function Namso() {
                       // whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.25 }}
-                      variants={variants}
                       style={{
                         cursor: "grab",
                       }}

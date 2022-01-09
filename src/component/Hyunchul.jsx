@@ -42,11 +42,6 @@ function Hyunchul() {
     setHyunMessage(message);
   }, [hyun, setHyunMessage]);
 
-  const variants = {
-    rotate: { rotate: [0, -30, 0], transition: { duration: 0.5 } },
-    stop: { y: [0, -10, 0], transition: { repeat: Infinity, repeatDelay: 3 } },
-  };
-
   return (
     <Center>
       <Box w="1100px" zIndex={3}>
@@ -94,7 +89,6 @@ function Hyunchul() {
                       // whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.25 }}
-                      variants={variants}
                       style={{
                         cursor: "grab",
                       }}

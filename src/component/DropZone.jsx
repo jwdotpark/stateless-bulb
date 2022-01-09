@@ -25,8 +25,6 @@ function DropZone() {
 
   const [fontSize, setFontSize] = useState("");
 
-  // helper function that returns a font size based on charCount()
-
   const adjustFontSize = () => {
     if (fontSize < 100) {
       return "3rem";
