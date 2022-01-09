@@ -63,7 +63,7 @@ function Eun() {
         <Flex direction="row" wrap="wrap">
           {eun_link.map((link, index) => {
             return (
-              <Box key={index} w="55px" h="500px" mx="-1.5px">
+              <Box key={index} w="55px" h="450px" mx="-1.5px">
                 <Rnd
                   onDragStop={(e, d) => {
                     if (d.y < -800) {
