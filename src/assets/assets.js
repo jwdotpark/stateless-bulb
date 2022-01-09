@@ -390,43 +390,43 @@ const assets = {
   },
   hyunchul: {
     1: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c0286f110ab526a8908d33_1.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c0286f110ab526a8908d33_1-p-500.png",
       alt: "서울 압구정동 윤호병원 1기생",
     },
     2: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c0287f0b94f3cb3817a459_2.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c0287f0b94f3cb3817a459_2-p-500.png",
       alt: "0개국어를 하는 느낌이죠",
     },
     3: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02890e34f90fea4e88c2a_3.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02890e34f90fea4e88c2a_3-p-500.png",
       alt: "네덜란드 국적을 갖고 싶습니다",
     },
     4: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028af49e78a2a884005b5_4.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028af49e78a2a884005b5_4-p-500.png",
       alt: "지리적 고향에 대한 큰 의미를 갖고 있지 않습니다",
     },
     5: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028c1194ffa045ab61627_5.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028c1194ffa045ab61627_5-p-500.png",
       alt: "구사할 수 있는 언어는 2.5개입니다",
     },
     6: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028d26ee14981f3c7707d_6.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028d26ee14981f3c7707d_6-p-500.png",
       alt: "왜 여기서 머물러야 하는지 구구절절한 설명과 여권, 거주증을 보여줘야 해요",
     },
     7: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028da110ab553be909204_7.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028da110ab553be909204_7-p-500.png",
       alt: "어디서든 이방인",
     },
     8: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028edd7afbc38e653ab09_8.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028edd7afbc38e653ab09_8-p-500.png",
       alt: "스타벅스에 가면 여러 버전의 이름이 생깁니다",
     },
     9: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028fe00fc8a8b507b76d2_9.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028fe00fc8a8b507b76d2_9-p-500.png",
       alt: "독일을 선택했다기 보다 집에서 최대한 멀어지고 싶었다",
     },
     10: {
-      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02a35b5e590372de5152f_10.png",
+      link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02a35b5e590372de5152f_10-p-500.png",
       alt: "누가 나를 어떻게 부르든 찰떡같이 알아듣게 됐습니다",
     },
   },
