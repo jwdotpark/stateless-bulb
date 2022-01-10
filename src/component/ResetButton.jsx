@@ -12,7 +12,6 @@ function ResetButton() {
       <motion.div
         // whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        // whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.25 }}
         style={{
           cursor: "grab",

@@ -49,7 +49,6 @@ function Hyunchul() {
   return (
     <Center>
       <Box w="1100px" zIndex={3}>
-        {JSON.stringify(hyun)}
         <Flex direction="row" wrap="wrap">
           {hyun_link.map((link, index) => {
             return (
