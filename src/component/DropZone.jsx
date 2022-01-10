@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
 import { Box, Center } from "@chakra-ui/react";
-import TextTransition, { presets } from "react-text-transition";
+// import TextTransition, { presets } from "react-text-transition";
 
 function DropZone() {
   const { namsoMessage, eunMessage, hyunMessage, basePos } =
