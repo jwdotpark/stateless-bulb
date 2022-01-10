@@ -8,7 +8,7 @@ function ResetButton() {
   const { clickReset, setClickReset } = useContext(MessageContext);
 
   return (
-    <Box position="absolute" top="690" ml="150">
+    <Box position="absolute" top="690" ml="150" opacity="0.75">
       <motion.div
         // whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
