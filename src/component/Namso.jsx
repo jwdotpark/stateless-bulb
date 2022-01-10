@@ -90,6 +90,7 @@ function Namso() {
                     x: namso[index + 1].x,
                     y: namso[index + 1].y,
                   }}
+                  style={{ border: "1px solid black" }}
                 >
                   <Box>
                     <motion.div

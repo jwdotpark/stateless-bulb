@@ -53,7 +53,7 @@ const assets = {
     },
     2: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02d7e2453cb30ab13c56f_28-p-500.png",
-      alt: "",
+      alt: "지리적, 서류상 고향이 따로 있습니다.",
     },
     3: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02c815662f73d46950de0_17.png",
@@ -61,7 +61,7 @@ const assets = {
     },
     4: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02d6bac5634f84070ee58_27.png",
-      alt: "",
+      alt: "임의로 만든 이름이 있습니다.",
     },
     5: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02cfe00fc8a22997b9579_24.png",
@@ -99,7 +99,7 @@ const assets = {
     },
     3: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02f8f2453cb68d613d1e2_33.png",
-      alt: "",
+      alt: "이방인입니다.",
     },
     4: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02fa7baf30ff9e8034f77_34.png",
@@ -127,7 +127,7 @@ const assets = {
     },
     10: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c030b96ee1497d12c79725_40.png",
-      alt: "",
+      alt: "가족이 있는 곳의 국적을 갖고 싶어요.",
     },
     11: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c030c91c5fbcd3c637310b_41.png",
@@ -135,7 +135,7 @@ const assets = {
     },
     12: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c03102448248587a4f5118_42.png",
-      alt: "",
+      alt: "검머외라고 불립니다.",
     },
     13: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c031147ea68aa79430e88b_43.png",
@@ -143,7 +143,7 @@ const assets = {
     },
     14: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c0312e6c4806043fc2d88a_44.png",
-      alt: "",
+      alt: "어떤 탈북 친구들은 강원도에서 왔다고 하지요.",
     },
     15: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c03142b6a62cc8a2866924_45.png",
@@ -163,7 +163,7 @@ const assets = {
     },
     19: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c031928752dd0f43210cf0_49.png",
-      alt: "",
+      alt: "인간 중에 소수가 사람이지요.",
     },
     20: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c031a9110ab579c390d47a_50.png",
@@ -173,7 +173,7 @@ const assets = {
   hyunchul: {
     1: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c0286f110ab526a8908d33_1-p-500.png",
-      alt: "",
+      alt: "서울 압구정동 윤호병원 1기생이었습니다.",
     },
     2: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c0287f0b94f3cb3817a459_2-p-500.png",
@@ -189,7 +189,7 @@ const assets = {
     },
     5: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028c1194ffa045ab61627_5-p-500.png",
-      alt: "",
+      alt: "구사할 수 있는 언어는 2.5개입니다.",
     },
     6: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c028d26ee14981f3c7707d_6-p-500.png",
@@ -209,7 +209,7 @@ const assets = {
     },
     10: {
       link: "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c02a35b5e590372de5152f_10-p-500.png",
-      alt: "",
+      alt: "누가 나를 어떻게 부르든 찰떡같이 알아듣게 됐습니다.",
     },
   },
 };
