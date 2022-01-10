@@ -128,6 +128,7 @@ function Eun() {
                           [index + 1]: {
                             x: eun[index + 1].x,
                             y: eun[index + 1].y,
+                            alt: eun[index + 1].alt,
                             isClicked: !eun[index + 1].isClicked,
                             clickNum: eun[index + 1].clickNum + 1,
                           },

@@ -116,6 +116,7 @@ function Namso() {
                           [index + 1]: {
                             x: namso[index + 1].x,
                             y: namso[index + 1].y,
+                            alt: namso[index + 1].alt,
                             isClicked: !namso[index + 1].isClicked,
                             clickNum: namso[index + 1].clickNum + 1,
                           },

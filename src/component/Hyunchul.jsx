@@ -55,7 +55,7 @@ function Hyunchul() {
               <Box key={index} w="120px" h="550px" mx="-.5rem">
                 <Rnd
                   onDragStop={(e, d) => {
-                    if (d.y < -1400) {
+                    if (d.y < -1200) {
                       setHyun({
                         ...hyun,
                         [index + 1]: {
@@ -117,6 +117,7 @@ function Hyunchul() {
                           [index + 1]: {
                             x: hyun[index + 1].x,
                             y: hyun[index + 1].y,
+                            alt: hyun[index + 1].alt,
                             isClicked: !hyun[index + 1].isClicked,
                             clickNum: hyun[index + 1].clickNum + 1,
                           },
