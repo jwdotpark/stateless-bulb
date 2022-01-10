@@ -7,16 +7,16 @@ import assets from "../assets/assets";
 
 function Hyunchul() {
   const initialState = {
-    1: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    2: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    3: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    4: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    5: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    6: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    7: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    8: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    9: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    10: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    1: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    2: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    3: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    4: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    5: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    6: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    7: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    8: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    9: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    10: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
   };
 
   const { setHyunMessage, clickReset } = useContext(MessageContext);
@@ -49,6 +49,7 @@ function Hyunchul() {
   return (
     <Center>
       <Box w="1100px" zIndex={3}>
+        {JSON.stringify(hyun)}
         <Flex direction="row" wrap="wrap">
           {hyun_link.map((link, index) => {
             return (
@@ -99,8 +100,13 @@ function Hyunchul() {
                         y: position.y,
                         isClicked: hyun[index + 1].isClicked,
                         clickNum: hyun[index + 1].clickNum,
+                        width: ref.offsetWidth,
                       },
                     });
+                  }}
+                  // update size
+                  size={{
+                    width: hyun[index + 1].width,
                   }}
                 >
                   <Box>

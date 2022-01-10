@@ -7,26 +7,26 @@ import assets from "../assets/assets";
 
 function Eun() {
   const initialState = {
-    1: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    2: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    3: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    4: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    5: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    6: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    7: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    8: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    9: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    10: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    11: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    12: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    13: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    14: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    15: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    16: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    17: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    18: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    19: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    20: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    1: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    2: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    3: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    4: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    5: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    6: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    7: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    8: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    9: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    10: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    11: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    12: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    13: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    14: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    15: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    16: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    17: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    18: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    19: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    20: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
   };
 
   const { setEunMessage, clickReset } = useContext(MessageContext);
@@ -110,8 +110,12 @@ function Eun() {
                         y: position.y,
                         isClicked: eun[index + 1].isClicked,
                         clickNum: eun[index + 1].clickNum,
+                        width: ref.offsetWidth,
                       },
                     });
+                  }}
+                  size={{
+                    width: eun[index + 1].width,
                   }}
                 >
                   <Box>

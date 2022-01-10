@@ -7,21 +7,21 @@ import assets from "../assets/assets";
 
 function Base() {
   const initialState = {
-    1: { x: 0, y: 0 },
-    2: { x: 0, y: 0 },
-    3: { x: 0, y: 0 },
-    4: { x: 0, y: 0 },
-    5: { x: 0, y: 0 },
-    6: { x: 0, y: 0 },
-    7: { x: 0, y: 0 },
-    8: { x: 0, y: 0 },
-    9: { x: 0, y: 0 },
-    10: { x: 0, y: 0 },
-    11: { x: 0, y: 0 },
-    12: { x: 0, y: 0 },
-    13: { x: 0, y: 0 },
-    14: { x: 0, y: 0 },
-    15: { x: 0, y: 0 },
+    1: { x: 0, y: 0, width: 185 },
+    2: { x: 0, y: 0, width: 185 },
+    3: { x: 0, y: 0, width: 185 },
+    4: { x: 0, y: 0, width: 185 },
+    5: { x: 0, y: 0, width: 185 },
+    6: { x: 0, y: 0, width: 185 },
+    7: { x: 0, y: 0, width: 185 },
+    8: { x: 0, y: 0, width: 185 },
+    9: { x: 0, y: 0, width: 185 },
+    10: { x: 0, y: 0, width: 185 },
+    11: { x: 0, y: 0, width: 185 },
+    12: { x: 0, y: 0, width: 185 },
+    13: { x: 0, y: 0, width: 185 },
+    14: { x: 0, y: 0, width: 185 },
+    15: { x: 0, y: 0, width: 185 },
   };
 
   const { setBasePos, clickReset } = useContext(MessageContext);
@@ -92,8 +92,13 @@ function Base() {
                         y: position.y,
                         isClicked: base[index + 1].isClicked,
                         clickNum: base[index + 1].clickNum,
+                        width: ref.offsetWidth,
                       },
                     });
+                  }}
+                  // update size
+                  size={{
+                    width: base[index + 1].width,
                   }}
                 >
                   <Box>

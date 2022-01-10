@@ -9,16 +9,16 @@ function Namso() {
   const { setNamsoMessage, clickReset } = useContext(MessageContext);
 
   const initialState = {
-    1: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    2: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    3: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    4: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    5: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    6: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    7: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    8: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    9: { x: 0, y: 0, isClicked: false, clickNum: 0 },
-    10: { x: 0, y: 0, isClicked: false, clickNum: 0 },
+    1: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    2: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    3: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    4: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    5: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    6: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    7: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    8: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    9: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    10: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
   };
 
   const [namso, setNamso] = useState(initialState);
@@ -64,6 +64,7 @@ function Namso() {
                           alt: namso_alt[index],
                           isClicked: namso[index + 1].isClicked,
                           clickNum: namso[index + 1].clickNum,
+                          width: namso[index + 1].width,
                         },
                       });
                     } else {
@@ -75,6 +76,7 @@ function Namso() {
                           alt: "",
                           isClicked: namso[index + 1].isClicked,
                           clickNum: namso[index + 1].clickNum,
+                          width: namso[index + 1].width,
                         },
                       });
                     }
@@ -84,12 +86,13 @@ function Namso() {
                   default={{
                     x: 0,
                     y: 0,
-                    width: 130,
+                    width: namso[index + 1].width,
                   }}
                   position={{
                     x: namso[index + 1].x,
                     y: namso[index + 1].y,
                   }}
+                  // update position
                   onResizeStop={(e, direction, ref, delta, position) => {
                     setNamso({
                       ...namso,
@@ -99,8 +102,13 @@ function Namso() {
                         alt: namso_alt[index],
                         isClicked: namso[index + 1].isClicked,
                         clickNum: namso[index + 1].clickNum,
+                        width: ref.offsetWidth,
                       },
                     });
+                  }}
+                  // update size
+                  size={{
+                    width: namso[index + 1].width,
                   }}
                 >
                   <Box>
