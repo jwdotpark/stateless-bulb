@@ -123,8 +123,8 @@ function Eun() {
                         });
                       }}
                     >
-                      {eun_alt[index] ===
-                      "가족이 있는 곳의 국적을 갖고 싶어요" ? (
+                      {eun_link[index] ===
+                      "https://uploads-ssl.webflow.com/61281e78cb914a06ecd1031c/61c030b96ee1497d12c79725_40.png" ? (
                         <Image
                           src={`${link}`}
                           draggable="false"
