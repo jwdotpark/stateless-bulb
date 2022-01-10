@@ -73,15 +73,7 @@ function DropZone() {
             }}
             // noOfLines={10}
           >
-            {basePos && (
-              <TextTransition
-                onMouseEnter={() => {
-                  setFontSize(charCount());
-                }}
-                text={combinedMessage}
-                springConfig={presets.molasses}
-              />
-            )}
+            {basePos && combinedMessage}
           </Box>
         </Box>
       </Center>
