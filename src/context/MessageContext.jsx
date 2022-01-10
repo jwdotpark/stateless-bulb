@@ -8,6 +8,8 @@ const MessageProvider = ({ children }) => {
   const [eunMessage, setEunMessage] = useState("");
   const [hyunMessage, setHyunMessage] = useState("");
   const [basePos, setBasePos] = useState(false);
+  const [clickReset, setClickReset] = useState(false);
+
   return (
     <MessageContext.Provider
       value={{
@@ -19,6 +21,8 @@ const MessageProvider = ({ children }) => {
         setHyunMessage,
         basePos,
         setBasePos,
+        clickReset,
+        setClickReset,
       }}
     >
       {children}

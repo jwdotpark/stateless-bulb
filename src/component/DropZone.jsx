@@ -4,8 +4,7 @@ import { Box, Center } from "@chakra-ui/react";
 // import TextTransition, { presets } from "react-text-transition";
 
 function DropZone() {
-  const { namsoMessage, eunMessage, hyunMessage, basePos } =
-    useContext(MessageContext);
+  const { namsoMessage, eunMessage, hyunMessage } = useContext(MessageContext);
 
   // dynamic font size
   const textVolume = [];
@@ -73,7 +72,8 @@ function DropZone() {
             }}
             // noOfLines={10}
           >
-            {basePos && combinedMessage}
+            {/* {basePos && combinedMessage} */}
+            {combinedMessage}
           </Box>
         </Box>
       </Center>

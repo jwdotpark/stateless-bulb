@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Namso() {
-  const { setNamsoMessage } = useContext(MessageContext);
+  const { setNamsoMessage, clickReset } = useContext(MessageContext);
 
   const initialState = {
     1: { x: 0, y: 0, isClicked: false, clickNum: 0 },
@@ -40,6 +40,11 @@ function Namso() {
     }
     setNamsoMessage(message);
   }, [namso, setNamsoMessage]);
+
+  useEffect(() => {
+    setNamso(initialState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clickReset]);
 
   return (
     <Center>
@@ -81,6 +86,10 @@ function Namso() {
                     y: 0,
                     width: 130,
                   }}
+                  position={{
+                    x: namso[index + 1].x,
+                    y: namso[index + 1].y,
+                  }}
                 >
                   <Box>
                     <motion.div
@@ -105,6 +114,8 @@ function Namso() {
                         setNamso({
                           ...namso,
                           [index + 1]: {
+                            x: namso[index + 1].x,
+                            y: namso[index + 1].y,
                             isClicked: !namso[index + 1].isClicked,
                             clickNum: namso[index + 1].clickNum + 1,
                           },

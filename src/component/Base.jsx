@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
 import { Box, Image, Flex, Center } from "@chakra-ui/react";
 import { Rnd } from "react-rnd";
@@ -24,7 +24,7 @@ function Base() {
     15: { x: 0, y: 0 },
   };
 
-  const { setBasePos } = useContext(MessageContext);
+  const { setBasePos, clickReset } = useContext(MessageContext);
 
   const [base, setBase] = useState(initialState);
 
@@ -33,6 +33,11 @@ function Base() {
   for (let i in assets.base) {
     base_link.push(assets.base[i].link);
   }
+
+  useEffect(() => {
+    setBase(initialState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clickReset]);
 
   return (
     <Center>
@@ -75,6 +80,10 @@ function Base() {
                     width: 185,
                     // height: 165,
                   }}
+                  position={{
+                    x: base[index + 1].x,
+                    y: base[index + 1].y,
+                  }}
                 >
                   <Box>
                     <motion.div
@@ -83,6 +92,17 @@ function Base() {
                       transition={{ duration: 0.25 }}
                       style={{
                         cursor: "grab",
+                      }}
+                      onDoubleClick={() => {
+                        setBase({
+                          ...base,
+                          [index + 1]: {
+                            x: base[index + 1].x,
+                            y: base[index + 1].y,
+                            isClicked: !base[index + 1].isClicked,
+                            clickNum: base[index + 1].clickNum + 1,
+                          },
+                        });
                       }}
                     >
                       <Image src={`${link}`} draggable="false" />

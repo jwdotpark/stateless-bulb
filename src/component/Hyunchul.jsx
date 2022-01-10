@@ -19,10 +19,9 @@ function Hyunchul() {
     10: { x: 0, y: 0, isClicked: false, clickNum: 0 },
   };
 
-  const { setHyunMessage } = useContext(MessageContext);
+  const { setHyunMessage, clickReset } = useContext(MessageContext);
 
   const [hyun, setHyun] = useState(initialState);
-  // const [message] = useState("");
 
   const hyun_link = [];
   const hyun_alt = [];
@@ -41,6 +40,11 @@ function Hyunchul() {
     }
     setHyunMessage(message);
   }, [hyun, setHyunMessage]);
+
+  useEffect(() => {
+    setHyun(initialState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clickReset]);
 
   return (
     <Center>
@@ -83,6 +87,10 @@ function Hyunchul() {
                     width: 120,
                     // height: 175,
                   }}
+                  position={{
+                    x: hyun[index + 1].x,
+                    y: hyun[index + 1].y,
+                  }}
                 >
                   <Box>
                     <motion.div
@@ -107,6 +115,8 @@ function Hyunchul() {
                         setHyun({
                           ...hyun,
                           [index + 1]: {
+                            x: hyun[index + 1].x,
+                            y: hyun[index + 1].y,
                             isClicked: !hyun[index + 1].isClicked,
                             clickNum: hyun[index + 1].clickNum + 1,
                           },

@@ -29,7 +29,7 @@ function Eun() {
     20: { x: 0, y: 0, isClicked: false, clickNum: 0 },
   };
 
-  const { setEunMessage } = useContext(MessageContext);
+  const { setEunMessage, clickReset } = useContext(MessageContext);
 
   const [eun, setEun] = useState(initialState);
   const [message] = useState("");
@@ -51,6 +51,11 @@ function Eun() {
     }
     setEunMessage(message);
   }, [eun, setEunMessage]);
+
+  useEffect(() => {
+    setEun(initialState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clickReset]);
 
   return (
     <Center>
@@ -93,6 +98,10 @@ function Eun() {
                     width: 75,
                     // height: 175,
                   }}
+                  position={{
+                    x: eun[index + 1].x,
+                    y: eun[index + 1].y,
+                  }}
                 >
                   <Box>
                     <motion.div
@@ -117,6 +126,8 @@ function Eun() {
                         setEun({
                           ...eun,
                           [index + 1]: {
+                            x: eun[index + 1].x,
+                            y: eun[index + 1].y,
                             isClicked: !eun[index + 1].isClicked,
                             clickNum: eun[index + 1].clickNum + 1,
                           },

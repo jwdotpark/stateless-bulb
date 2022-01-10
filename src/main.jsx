@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import Noise from "./component/Noise";
+import ResetButton from "./component/ResetButton";
 import Base from "./component/Base";
 import DropZone from "./component/DropZone";
 import Namso from "./component/Namso";
@@ -10,6 +11,7 @@ function Main() {
   return (
     <Box bg="#b89e81">
       <Noise />
+      <ResetButton />
       <Base />
       <DropZone />
       <Namso />
