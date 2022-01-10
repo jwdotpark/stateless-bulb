@@ -90,7 +90,18 @@ function Namso() {
                     x: namso[index + 1].x,
                     y: namso[index + 1].y,
                   }}
-                  style={{ border: "1px solid black" }}
+                  onResizeStop={(e, direction, ref, delta, position) => {
+                    setNamso({
+                      ...namso,
+                      [index + 1]: {
+                        x: position.x,
+                        y: position.y,
+                        alt: namso_alt[index],
+                        isClicked: namso[index + 1].isClicked,
+                        clickNum: namso[index + 1].clickNum,
+                      },
+                    });
+                  }}
                 >
                   <Box>
                     <motion.div

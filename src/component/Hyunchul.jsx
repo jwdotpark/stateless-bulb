@@ -91,6 +91,17 @@ function Hyunchul() {
                     x: hyun[index + 1].x,
                     y: hyun[index + 1].y,
                   }}
+                  onResizeStop={(e, direction, ref, delta, position) => {
+                    setHyun({
+                      ...hyun,
+                      [index + 1]: {
+                        x: position.x,
+                        y: position.y,
+                        isClicked: hyun[index + 1].isClicked,
+                        clickNum: hyun[index + 1].clickNum,
+                      },
+                    });
+                  }}
                 >
                   <Box>
                     <motion.div

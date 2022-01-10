@@ -102,6 +102,17 @@ function Eun() {
                     x: eun[index + 1].x,
                     y: eun[index + 1].y,
                   }}
+                  onResizeStop={(e, direction, ref, delta, position) => {
+                    setEun({
+                      ...eun,
+                      [index + 1]: {
+                        x: position.x,
+                        y: position.y,
+                        isClicked: eun[index + 1].isClicked,
+                        clickNum: eun[index + 1].clickNum,
+                      },
+                    });
+                  }}
                 >
                   <Box>
                     <motion.div

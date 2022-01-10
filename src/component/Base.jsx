@@ -84,6 +84,17 @@ function Base() {
                     x: base[index + 1].x,
                     y: base[index + 1].y,
                   }}
+                  onResizeStop={(e, direction, ref, delta, position) => {
+                    setBase({
+                      ...base,
+                      [index + 1]: {
+                        x: position.x,
+                        y: position.y,
+                        isClicked: base[index + 1].isClicked,
+                        clickNum: base[index + 1].clickNum,
+                      },
+                    });
+                  }}
                 >
                   <Box>
                     <motion.div
