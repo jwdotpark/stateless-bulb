@@ -55,7 +55,7 @@ function Namso() {
               <Box key={index} w="125px" h="300px" mx="-0.5rem">
                 <Rnd
                   onDragStop={(e, d) => {
-                    if (d.y < -300) {
+                    if (d.y < -200) {
                       setNamso({
                         ...namso,
                         [index + 1]: {

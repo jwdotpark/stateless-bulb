@@ -66,7 +66,7 @@ function Eun() {
               <Box key={index} w="55px" h="450px" mx="-1.5px">
                 <Rnd
                   onDragStop={(e, d) => {
-                    if (d.y < -800) {
+                    if (d.y < -700) {
                       setEun({
                         ...eun,
                         [index + 1]: {
