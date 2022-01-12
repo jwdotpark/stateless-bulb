@@ -35,7 +35,6 @@ function DropZone() {
       return "3rem";
     }
   };
-  console.log(combinedMSG);
 
   return (
     <>

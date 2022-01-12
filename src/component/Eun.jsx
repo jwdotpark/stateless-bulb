@@ -79,7 +79,7 @@ function Eun() {
                         },
                       });
                       if (!eun[index + 1].alt)
-                        setCombinedMSG([...combinedMSG, eun_alt[index]]);
+                        setCombinedMSG([eun_alt[index], ...combinedMSG]);
                     } else {
                       setEun({
                         ...eun,

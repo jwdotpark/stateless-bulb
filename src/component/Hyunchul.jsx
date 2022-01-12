@@ -68,7 +68,7 @@ function Hyunchul() {
                         },
                       });
                       if (!hyun[index + 1].alt)
-                        setCombinedMSG([...combinedMSG, hyun_alt[index]]);
+                        setCombinedMSG([hyun_alt[index], ...combinedMSG]);
                     } else {
                       setHyun({
                         ...hyun,

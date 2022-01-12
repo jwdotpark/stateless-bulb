@@ -71,7 +71,7 @@ function Namso() {
                         },
                       });
                       if (!namso[index + 1].alt)
-                        setCombinedMSG([...combinedMSG, namso_alt[index]]);
+                        setCombinedMSG([namso_alt[index], ...combinedMSG]);
                     } else {
                       setNamso({
                         ...namso,
