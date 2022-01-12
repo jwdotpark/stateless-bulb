@@ -4,7 +4,7 @@ import { Box, Center } from "@chakra-ui/react";
 // import TextTransition, { presets } from "react-text-transition";
 
 function DropZone() {
-  const { combinedMSG } = useContext(MessageContext);
+  const { combinedMSG, globZ } = useContext(MessageContext);
 
   // dynamic font size
   const textVolume = [];
@@ -53,6 +53,8 @@ function DropZone() {
             setFontSize(charCount());
           }}
         >
+          {globZ}
+
           <Box
             id="text-box"
             w="690px"

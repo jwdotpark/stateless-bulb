@@ -7,30 +7,36 @@ import assets from "../assets/assets";
 
 function Eun() {
   const initialState = {
-    1: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    2: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    3: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    4: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    5: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    6: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    7: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    8: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    9: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    10: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    11: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    12: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    13: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    14: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    15: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    16: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    17: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    18: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    19: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
-    20: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
+    1: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    2: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    3: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    4: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    5: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    6: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    7: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    8: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    9: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    10: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    11: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    12: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    13: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    14: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    15: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    16: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    17: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    18: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    19: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
+    20: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75, z: 1 },
   };
 
-  const { combinedMSG, setCombinedMSG, setEunMessage, clickReset } =
-    useContext(MessageContext);
+  const {
+    combinedMSG,
+    setCombinedMSG,
+    setEunMessage,
+    clickReset,
+    globZ,
+    setGlobZ,
+  } = useContext(MessageContext);
 
   const [eun, setEun] = useState(initialState);
   const [message] = useState("");
@@ -65,8 +71,11 @@ function Eun() {
           {eun_link.map((link, index) => {
             return (
               <Box key={index} w="55px" h="450px" mx="-1.5px">
+                {eun[index + 1].z}
                 <Rnd
+                  style={{ zIndex: eun[index + 1].z }}
                   onDragStop={(e, d) => {
+                    setGlobZ(eun[index + 1].z + globZ);
                     if (d.y < -700) {
                       setEun({
                         ...eun,
@@ -76,6 +85,8 @@ function Eun() {
                           alt: eun_alt[index],
                           isClicked: eun[index + 1].isClicked,
                           clickNum: eun[index + 1].clickNum,
+                          width: eun[index + 1].width,
+                          z: eun[index + 1].z + globZ,
                         },
                       });
                       if (!eun[index + 1].alt)
@@ -89,6 +100,8 @@ function Eun() {
                           alt: "",
                           isClicked: eun[index + 1].isClicked,
                           clickNum: eun[index + 1].clickNum,
+                          width: eun[index + 1].width,
+                          z: eun[index + 1].z,
                         },
                       });
                       setCombinedMSG(
@@ -112,11 +125,13 @@ function Eun() {
                     setEun({
                       ...eun,
                       [index + 1]: {
+                        ...eun[index + 1],
                         x: position.x,
                         y: position.y,
                         isClicked: eun[index + 1].isClicked,
                         clickNum: eun[index + 1].clickNum,
                         width: ref.offsetWidth,
+                        z: eun[index + 1].z,
                       },
                     });
                   }}
@@ -152,6 +167,7 @@ function Eun() {
                             alt: eun[index + 1].alt,
                             isClicked: !eun[index + 1].isClicked,
                             clickNum: eun[index + 1].clickNum + 1,
+                            z: eun[index + 1].z,
                           },
                         });
                       }}

@@ -63,10 +63,8 @@ function Namso() {
                 {namso[index + 1].z}
                 <Rnd
                   style={{ zIndex: namso[index + 1].z }}
-                  onClick={() => {
-                    setGlobZ(namso[index + 1].z);
-                  }}
                   onDragStop={(e, d) => {
+                    setGlobZ(namso[index + 1].z + globZ);
                     if (d.y < -200) {
                       setNamso({
                         ...namso,
