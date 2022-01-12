@@ -39,6 +39,7 @@ function DropZone() {
   return (
     <>
       <Center>
+        {combinedMSG}
         <Box
           mt="5rem"
           zIndex="2"

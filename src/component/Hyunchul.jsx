@@ -50,13 +50,14 @@ function Hyunchul() {
   return (
     <Center>
       <Box w="1100px" zIndex={3}>
+        {JSON.stringify(hyun)}
         <Flex direction="row" wrap="wrap">
           {hyun_link.map((link, index) => {
             return (
               <Box key={index} w="120px" h="550px" mx="-.5rem">
                 <Rnd
                   onDragStop={(e, d) => {
-                    if (d.y < -1200) {
+                    if (d.y < -1300) {
                       setHyun({
                         ...hyun,
                         [index + 1]: {
@@ -65,6 +66,7 @@ function Hyunchul() {
                           alt: hyun_alt[index],
                           isClicked: hyun[index + 1].isClicked,
                           clickNum: hyun[index + 1].clickNum,
+                          width: hyun[index + 1].width,
                         },
                       });
                       if (!hyun[index + 1].alt)
@@ -78,6 +80,7 @@ function Hyunchul() {
                           alt: "",
                           isClicked: hyun[index + 1].isClicked,
                           clickNum: hyun[index + 1].clickNum,
+                          width: hyun[index + 1].width,
                         },
                       });
                       setCombinedMSG(
@@ -103,6 +106,7 @@ function Hyunchul() {
                       [index + 1]: {
                         x: position.x,
                         y: position.y,
+                        alt: hyun_alt[index],
                         isClicked: hyun[index + 1].isClicked,
                         clickNum: hyun[index + 1].clickNum,
                         width: ref.offsetWidth,
