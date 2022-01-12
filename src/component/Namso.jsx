@@ -6,20 +6,26 @@ import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Namso() {
-  const { combinedMSG, setCombinedMSG, setNamsoMessage, clickReset } =
-    useContext(MessageContext);
+  const {
+    combinedMSG,
+    setCombinedMSG,
+    setNamsoMessage,
+    clickReset,
+    globZ,
+    setGlobZ,
+  } = useContext(MessageContext);
 
   const initialState = {
-    1: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    2: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    3: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    4: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    5: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    6: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    7: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    8: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    9: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
-    10: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    1: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    2: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    3: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    4: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    5: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    6: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    7: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    8: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    9: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
+    10: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, z: 1 },
   };
 
   const [namso, setNamso] = useState(initialState);
@@ -47,8 +53,6 @@ function Namso() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickReset]);
 
-  // const [namsoMSGArr, setNamsoMSGArr] = useState([]);
-
   return (
     <Center>
       <Box w="1100px" h="350px" zIndex={3} mt="6rem">
@@ -56,18 +60,25 @@ function Namso() {
           {namso_link.map((link, index) => {
             return (
               <Box key={index} w="125px" h="300px" mx="-0.5rem">
+                {namso[index + 1].z}
                 <Rnd
+                  style={{ zIndex: namso[index + 1].z }}
+                  onClick={() => {
+                    setGlobZ(namso[index + 1].z);
+                  }}
                   onDragStop={(e, d) => {
                     if (d.y < -200) {
                       setNamso({
                         ...namso,
                         [index + 1]: {
+                          ...[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: namso_alt[index],
                           isClicked: namso[index + 1].isClicked,
                           clickNum: namso[index + 1].clickNum,
                           width: namso[index + 1].width,
+                          z: namso[index + 1].z + globZ,
                         },
                       });
                       if (!namso[index + 1].alt)
@@ -76,12 +87,14 @@ function Namso() {
                       setNamso({
                         ...namso,
                         [index + 1]: {
+                          ...[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: "",
                           isClicked: namso[index + 1].isClicked,
                           clickNum: namso[index + 1].clickNum,
                           width: namso[index + 1].width,
+                          z: namso[index + 1].z,
                         },
                       });
                       setCombinedMSG(
@@ -105,12 +118,14 @@ function Namso() {
                     setNamso({
                       ...namso,
                       [index + 1]: {
+                        ...namso[index + 1],
                         x: position.x,
                         y: position.y,
                         alt: namso_alt[index],
                         isClicked: namso[index + 1].isClicked,
                         clickNum: namso[index + 1].clickNum,
                         width: ref.offsetWidth,
+                        z: namso[index + 1].z,
                       },
                     });
                   }}
@@ -147,6 +162,7 @@ function Namso() {
                             alt: namso[index + 1].alt,
                             isClicked: !namso[index + 1].isClicked,
                             clickNum: namso[index + 1].clickNum + 1,
+                            z: namso[index + 1].z,
                           },
                         });
                       }}

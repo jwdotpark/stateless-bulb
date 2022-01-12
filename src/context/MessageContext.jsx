@@ -17,6 +17,8 @@ const MessageProvider = ({ children }) => {
   const [basePos, setBasePos] = useState(false);
   const [clickReset, setClickReset] = useState(false);
 
+  const [globZ, setGlobZ] = useState(1);
+
   return (
     <MessageContext.Provider
       value={{
@@ -38,6 +40,8 @@ const MessageProvider = ({ children }) => {
         setHyunMSGArr,
         combinedMSG,
         setCombinedMSG,
+        globZ,
+        setGlobZ,
       }}
     >
       {children}
