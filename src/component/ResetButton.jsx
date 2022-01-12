@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { MessageContext } from "../context/MessageContext";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { DeleteIcon } from "@chakra-ui/icons";
+// import { DeleteIcon } from "@chakra-ui/icons";
 
 function ResetButton() {
   const { setCombinedMSG, clickReset, setClickReset } =
@@ -29,7 +29,8 @@ function ResetButton() {
             setCombinedMSG([]);
           }}
         >
-          <DeleteIcon w={6} h={6} />
+          {/* <DeleteIcon w={6} h={6} /> */}
+          <Text fontSize="md">리셋</Text>
         </Button>
       </motion.div>
     </Box>
