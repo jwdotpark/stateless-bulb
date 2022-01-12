@@ -35,6 +35,7 @@ function DropZone() {
       return "3rem";
     }
   };
+  console.log(combinedMSG);
 
   return (
     <>
@@ -68,7 +69,7 @@ function DropZone() {
               setFontSize(charCount());
             }}
           >
-            {combinedMSG}
+            {combinedMSG.join(" ")}
           </Box>
         </Box>
       </Center>
