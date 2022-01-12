@@ -66,12 +66,17 @@ function Eun() {
 
   return (
     <Center>
-      <Box w="1100px" zIndex={3}>
+      <Box w="1100px" zIndex={globZ}>
         <Flex direction="row" wrap="wrap">
           {eun_link.map((link, index) => {
             return (
-              <Box key={index} w="55px" h="450px" mx="-1.5px">
-                {eun[index + 1].z}
+              <Box
+                key={index}
+                w="55px"
+                h="450px"
+                mx="-1.5px"
+                style={{ zIndex: eun[index + 1].z }}
+              >
                 <Rnd
                   style={{ zIndex: eun[index + 1].z }}
                   onDragStop={(e, d) => {

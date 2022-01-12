@@ -24,7 +24,8 @@ function Base() {
     15: { x: 0, y: 0, width: 185 },
   };
 
-  const { setBasePos, clickReset } = useContext(MessageContext);
+  const { setBasePos, clickReset, globZ, setGlobZ } =
+    useContext(MessageContext);
 
   const [base, setBase] = useState(initialState);
 
@@ -45,9 +46,10 @@ function Base() {
         <Flex direction="row" wrap="wrap" justifyContent="space-evenly">
           {base_link.map((link, index) => {
             return (
-              <Box key={index} w="145px" h="110px" zIndex={4} mx="-5px">
+              <Box key={index} w="145px" h="110px" zIndex={globZ + 1} mx="-5px">
                 <Rnd
                   onDragStop={(e, d) => {
+                    setGlobZ(globZ + 1);
                     // set the new position of each base in initialState
                     if (d.x !== 0 && d.y > 300) {
                       setBase({

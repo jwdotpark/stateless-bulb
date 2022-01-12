@@ -7,20 +7,26 @@ import assets from "../assets/assets";
 
 function Hyunchul() {
   const initialState = {
-    1: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    2: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    3: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    4: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    5: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    6: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    7: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    8: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    9: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
-    10: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
+    1: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    2: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    3: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    4: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    5: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    6: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    7: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    8: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    9: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
+    10: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120, z: 1 },
   };
 
-  const { combinedMSG, setCombinedMSG, setHyunMessage, clickReset } =
-    useContext(MessageContext);
+  const {
+    combinedMSG,
+    setCombinedMSG,
+    setHyunMessage,
+    clickReset,
+    globZ,
+    setGlobZ,
+  } = useContext(MessageContext);
 
   const [hyun, setHyun] = useState(initialState);
 
@@ -49,23 +55,33 @@ function Hyunchul() {
 
   return (
     <Center>
-      <Box w="1100px" zIndex={3}>
+      <Box w="1100px" zIndex={globZ}>
         <Flex direction="row" wrap="wrap">
           {hyun_link.map((link, index) => {
             return (
-              <Box key={index} w="120px" h="550px" mx="-.5rem">
+              <Box
+                key={index}
+                w="120px"
+                h="550px"
+                mx="-.5rem"
+                style={{ zIndex: hyun[index + 1].z }}
+              >
                 <Rnd
+                  style={{ zIndex: hyun[index + 1].z }}
                   onDragStop={(e, d) => {
+                    setGlobZ(hyun[index + 1].z + globZ);
                     if (d.y < -1300) {
                       setHyun({
                         ...hyun,
                         [index + 1]: {
+                          ...hyun[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: hyun_alt[index],
                           isClicked: hyun[index + 1].isClicked,
                           clickNum: hyun[index + 1].clickNum,
                           width: hyun[index + 1].width,
+                          z: hyun[index + 1].z + globZ,
                         },
                       });
                       if (!hyun[index + 1].alt)
@@ -74,12 +90,14 @@ function Hyunchul() {
                       setHyun({
                         ...hyun,
                         [index + 1]: {
+                          ...hyun[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: "",
                           isClicked: hyun[index + 1].isClicked,
                           clickNum: hyun[index + 1].clickNum,
                           width: hyun[index + 1].width,
+                          z: hyun[index + 1].z,
                         },
                       });
                       setCombinedMSG(
@@ -103,12 +121,14 @@ function Hyunchul() {
                     setHyun({
                       ...hyun,
                       [index + 1]: {
+                        ...hyun[index + 1],
                         x: position.x,
                         y: position.y,
                         alt: hyun_alt[index],
                         isClicked: hyun[index + 1].isClicked,
                         clickNum: hyun[index + 1].clickNum,
                         width: ref.offsetWidth,
+                        z: hyun[index + 1].z,
                       },
                     });
                   }}
@@ -145,6 +165,7 @@ function Hyunchul() {
                             alt: hyun[index + 1].alt,
                             isClicked: !hyun[index + 1].isClicked,
                             clickNum: hyun[index + 1].clickNum + 1,
+                            z: hyun[index + 1].z,
                           },
                         });
                       }}

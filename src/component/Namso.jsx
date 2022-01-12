@@ -55,12 +55,17 @@ function Namso() {
 
   return (
     <Center>
-      <Box w="1100px" h="350px" zIndex={3} mt="6rem">
+      <Box w="1100px" h="350px" zIndex={globZ} mt="6rem">
         <Flex direction="row" wrap="wrap">
           {namso_link.map((link, index) => {
             return (
-              <Box key={index} w="125px" h="300px" mx="-0.5rem">
-                {namso[index + 1].z}
+              <Box
+                key={index}
+                w="125px"
+                h="300px"
+                mx="-0.5rem"
+                style={{ zIndex: namso[index + 1].z }}
+              >
                 <Rnd
                   style={{ zIndex: namso[index + 1].z }}
                   onDragStop={(e, d) => {
@@ -69,7 +74,7 @@ function Namso() {
                       setNamso({
                         ...namso,
                         [index + 1]: {
-                          ...[index + 1],
+                          ...namso[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: namso_alt[index],
@@ -85,7 +90,7 @@ function Namso() {
                       setNamso({
                         ...namso,
                         [index + 1]: {
-                          ...[index + 1],
+                          ...namso[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: "",
