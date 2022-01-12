@@ -10,7 +10,7 @@ function Namso() {
     useContext(MessageContext);
 
   const initialState = {
-    1: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, alt: "" },
+    1: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
     2: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
     3: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
     4: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
@@ -71,7 +71,7 @@ function Namso() {
                         },
                       });
                       if (!namso[index + 1].alt)
-                        setCombinedMSG([namso_alt[index], ...combinedMSG]);
+                        setCombinedMSG([...combinedMSG, namso_alt[index]]);
                     } else {
                       setNamso({
                         ...namso,
