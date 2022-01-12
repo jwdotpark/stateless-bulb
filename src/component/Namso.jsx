@@ -6,10 +6,11 @@ import { motion } from "framer-motion";
 import assets from "../assets/assets";
 
 function Namso() {
-  const { setNamsoMessage, clickReset } = useContext(MessageContext);
+  const { combinedMSG, setCombinedMSG, setNamsoMessage, clickReset } =
+    useContext(MessageContext);
 
   const initialState = {
-    1: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
+    1: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0, alt: "" },
     2: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
     3: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
     4: { x: 0, y: 0, width: 130, isClicked: false, clickNum: 0 },
@@ -46,6 +47,8 @@ function Namso() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickReset]);
 
+  // const [namsoMSGArr, setNamsoMSGArr] = useState([]);
+
   return (
     <Center>
       <Box w="1100px" h="350px" zIndex={3} mt="6rem">
@@ -67,6 +70,8 @@ function Namso() {
                           width: namso[index + 1].width,
                         },
                       });
+                      if (!namso[index + 1].alt)
+                        setCombinedMSG([...combinedMSG, namso_alt[index]]);
                     } else {
                       setNamso({
                         ...namso,
@@ -79,6 +84,9 @@ function Namso() {
                           width: namso[index + 1].width,
                         },
                       });
+                      setCombinedMSG(
+                        combinedMSG.filter((item) => item !== namso_alt[index])
+                      );
                     }
                   }}
                   enableResizing={true}

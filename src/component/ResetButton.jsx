@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { DeleteIcon } from "@chakra-ui/icons";
 
 function ResetButton() {
-  const { clickReset, setClickReset } = useContext(MessageContext);
+  const { setCombinedMSG, clickReset, setClickReset } =
+    useContext(MessageContext);
 
   return (
     <Box position="absolute" top="690" ml="150" opacity="0.75">
@@ -25,6 +26,7 @@ function ResetButton() {
           size="md"
           onClick={() => {
             setClickReset(!clickReset);
+            setCombinedMSG([]);
           }}
         >
           <DeleteIcon w={6} h={6} />

@@ -29,7 +29,8 @@ function Eun() {
     20: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 75 },
   };
 
-  const { setEunMessage, clickReset } = useContext(MessageContext);
+  const { combinedMSG, setCombinedMSG, setEunMessage, clickReset } =
+    useContext(MessageContext);
 
   const [eun, setEun] = useState(initialState);
   const [message] = useState("");
@@ -43,10 +44,10 @@ function Eun() {
   }
 
   useEffect(() => {
-    let message = "";
+    let message = [];
     for (let i in eun) {
       if (eun[i].alt) {
-        message += `${eun[i].alt} `;
+        message.push(`${eun[i].alt} `);
       }
     }
     setEunMessage(message);
@@ -77,6 +78,8 @@ function Eun() {
                           clickNum: eun[index + 1].clickNum,
                         },
                       });
+                      if (!eun[index + 1].alt)
+                        setCombinedMSG([...combinedMSG, eun_alt[index]]);
                     } else {
                       setEun({
                         ...eun,
@@ -88,6 +91,9 @@ function Eun() {
                           clickNum: eun[index + 1].clickNum,
                         },
                       });
+                      setCombinedMSG(
+                        combinedMSG.filter((item) => item !== eun_alt[index])
+                      );
                     }
                   }}
                   enableResizing={true}

@@ -19,7 +19,8 @@ function Hyunchul() {
     10: { x: 0, y: 0, isClicked: false, clickNum: 0, width: 120 },
   };
 
-  const { setHyunMessage, clickReset } = useContext(MessageContext);
+  const { combinedMSG, setCombinedMSG, setHyunMessage, clickReset } =
+    useContext(MessageContext);
 
   const [hyun, setHyun] = useState(initialState);
 
@@ -32,10 +33,10 @@ function Hyunchul() {
   }
 
   useEffect(() => {
-    let message = "";
+    let message = [];
     for (let i in hyun) {
       if (hyun[i].alt) {
-        message += `${hyun[i].alt} `;
+        message.push(`${hyun[i].alt} `);
       }
     }
     setHyunMessage(message);
@@ -66,6 +67,8 @@ function Hyunchul() {
                           clickNum: hyun[index + 1].clickNum,
                         },
                       });
+                      if (!hyun[index + 1].alt)
+                        setCombinedMSG([...combinedMSG, hyun_alt[index]]);
                     } else {
                       setHyun({
                         ...hyun,
@@ -77,6 +80,9 @@ function Hyunchul() {
                           clickNum: hyun[index + 1].clickNum,
                         },
                       });
+                      setCombinedMSG(
+                        combinedMSG.filter((item) => item !== hyun_alt[index])
+                      );
                     }
                   }}
                   enableResizing={true}
