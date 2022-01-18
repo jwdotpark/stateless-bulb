@@ -54,8 +54,8 @@ function Namso() {
   }, [clickReset]);
 
   return (
-    <Center>
-      <Box w="1100px" h="350px" zIndex={globZ} mt="6rem">
+    <Center zIndex={5} position="relative">
+      <Box w="1100px" h="350px" mt="6rem">
         <Flex direction="row" wrap="wrap">
           {namso_link.map((link, index) => {
             return (
@@ -67,7 +67,7 @@ function Namso() {
                 style={{ zIndex: namso[index + 1].z }}
               >
                 <Rnd
-                  style={{ zIndex: namso[index + 1].z }}
+                  style={{ zIndex: namso[index + 1].z, position: "relative" }}
                   onDragStop={(e, d) => {
                     setGlobZ(namso[index + 1].z + globZ);
                     if (d.y < -200) {
@@ -179,11 +179,6 @@ function Namso() {
           })}
         </Flex>
         {/* {JSON.stringify(namso)} */}
-        <Center>
-          <Box position="absolute" sx={{ top: "600px", left: 0 }}>
-            {/* <Text fontSize="xl">{message}</Text> */}
-          </Box>
-        </Center>
       </Box>
     </Center>
   );

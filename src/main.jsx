@@ -9,7 +9,7 @@ import Hyunchul from "./component/Hyunchul";
 
 function Main() {
   return (
-    <Box bg="#b89e81">
+    <Box bg="#b89e81" position="relative">
       <Noise />
       <ResetButton />
       <Base />

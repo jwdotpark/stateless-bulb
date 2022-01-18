@@ -41,7 +41,7 @@ function Base() {
   }, [clickReset]);
 
   return (
-    <Center>
+    <Center zIndex={10} position="relative">
       <Box w="1100px" mt="9rem">
         <Flex direction="row" wrap="wrap" justifyContent="space-evenly">
           {base_link.map((link, index) => {
