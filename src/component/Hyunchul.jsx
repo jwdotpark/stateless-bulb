@@ -160,6 +160,7 @@ function Hyunchul() {
                         setHyun({
                           ...hyun,
                           [index + 1]: {
+                            ...hyun[index + 1],
                             x: hyun[index + 1].x,
                             y: hyun[index + 1].y,
                             alt: hyun[index + 1].alt,

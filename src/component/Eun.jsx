@@ -85,6 +85,7 @@ function Eun() {
                       setEun({
                         ...eun,
                         [index + 1]: {
+                          ...eun[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: eun_alt[index],
@@ -100,6 +101,7 @@ function Eun() {
                       setEun({
                         ...eun,
                         [index + 1]: {
+                          ...eun[index + 1],
                           x: d.x,
                           y: d.y,
                           alt: "",
@@ -167,6 +169,7 @@ function Eun() {
                         setEun({
                           ...eun,
                           [index + 1]: {
+                            ...eun[index + 1],
                             x: eun[index + 1].x,
                             y: eun[index + 1].y,
                             alt: eun[index + 1].alt,
