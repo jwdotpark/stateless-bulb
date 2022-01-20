@@ -54,7 +54,7 @@ function Hyunchul() {
   }, [clickReset]);
 
   return (
-    <Center zIndex={3} position="relative">
+    <Center position="relative">
       <Box w="1100px">
         <Flex direction="row" wrap="wrap">
           {hyun_link.map((link, index) => {
@@ -67,7 +67,11 @@ function Hyunchul() {
                 style={{ zIndex: hyun[index + 1].z }}
               >
                 <Rnd
-                  style={{ zIndex: hyun[index + 1].z, position: "relative" }}
+                  style={{
+                    zIndex: hyun[index + 1].z,
+                    position: "relative",
+                    // border: "1px solid black",
+                  }}
                   onDragStop={(e, d) => {
                     setGlobZ(hyun[index + 1].z + globZ);
                     if (d.y < -1300) {

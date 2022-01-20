@@ -65,7 +65,7 @@ function Eun() {
   }, [clickReset]);
 
   return (
-    <Center zIndex={4} position="relative">
+    <Center position="relative">
       <Box w="1100px">
         <Flex direction="row" wrap="wrap">
           {eun_link.map((link, index) => {
@@ -78,7 +78,11 @@ function Eun() {
                 style={{ zIndex: eun[index + 1].z }}
               >
                 <Rnd
-                  style={{ zIndex: eun[index + 1].z, position: "relative" }}
+                  style={{
+                    zIndex: eun[index + 1].z,
+                    position: "relative",
+                    // border: "1px solid black",
+                  }}
                   onDragStop={(e, d) => {
                     setGlobZ(eun[index + 1].z + globZ);
                     if (d.y < -700) {

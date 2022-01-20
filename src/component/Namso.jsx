@@ -54,7 +54,7 @@ function Namso() {
   }, [clickReset]);
 
   return (
-    <Center zIndex={5} position="relative">
+    <Center position="relative">
       <Box w="1100px" h="350px" mt="6rem">
         <Flex direction="row" wrap="wrap">
           {namso_link.map((link, index) => {
@@ -67,7 +67,11 @@ function Namso() {
                 style={{ zIndex: namso[index + 1].z }}
               >
                 <Rnd
-                  style={{ zIndex: namso[index + 1].z, position: "relative" }}
+                  style={{
+                    zIndex: namso[index + 1].z,
+                    position: "relative",
+                    // border: "1px solid black",
+                  }}
                   onDragStop={(e, d) => {
                     setGlobZ(namso[index + 1].z + globZ);
                     if (d.y < -200) {
