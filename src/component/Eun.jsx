@@ -75,13 +75,13 @@ function Eun() {
                 w="55px"
                 h="450px"
                 mx="-1.5px"
-                style={{ zIndex: eun[index + 1].z }}
+                // style={{ zIndex: eun[index + 1].z }}
               >
                 <Rnd
                   style={{
                     zIndex: eun[index + 1].z,
                     position: "relative",
-                    // border: "1px solid black",
+                    border: "0px solid black",
                   }}
                   onDragStop={(e, d) => {
                     setGlobZ(eun[index + 1].z + globZ);

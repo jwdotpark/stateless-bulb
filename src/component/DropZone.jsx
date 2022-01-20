@@ -41,7 +41,7 @@ function DropZone() {
       <Center>
         <Box
           mt="5rem"
-          zIndex="2"
+          zIndex="1"
           maxW="690px"
           minW="420px"
           // minH="600px"

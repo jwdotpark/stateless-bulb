@@ -64,13 +64,13 @@ function Hyunchul() {
                 w="120px"
                 h="550px"
                 mx="-.5rem"
-                style={{ zIndex: hyun[index + 1].z }}
+                // style={{ zIndex: hyun[index + 1].z }}
               >
                 <Rnd
                   style={{
                     zIndex: hyun[index + 1].z,
                     position: "relative",
-                    // border: "1px solid black",
+                    border: "0px solid black",
                   }}
                   onDragStop={(e, d) => {
                     setGlobZ(hyun[index + 1].z + globZ);

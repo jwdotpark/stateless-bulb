@@ -64,13 +64,13 @@ function Namso() {
                 w="125px"
                 h="300px"
                 mx="-0.5rem"
-                style={{ zIndex: namso[index + 1].z }}
+                // style={{ zIndex: namso[index + 1].z }}
               >
                 <Rnd
                   style={{
                     zIndex: namso[index + 1].z,
                     position: "relative",
-                    // border: "1px solid black",
+                    border: "0px solid black",
                   }}
                   onDragStop={(e, d) => {
                     setGlobZ(namso[index + 1].z + globZ);
